@@ -1,6 +1,9 @@
 package uniquindio.edu.co.proyectofinal3.Modelo;
 
+import uniquindio.edu.co.proyectofinal3.Exepciones.ClienteException;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Cliente implements Serializable {
@@ -9,6 +12,8 @@ public class Cliente implements Serializable {
     private String id;
     private String correo;
     private String contrasenia;
+
+
 
     public Cliente(){ super(); }
 
@@ -52,83 +57,4 @@ public class Cliente implements Serializable {
      Cliente cliente = (Cliente) o;
      return Objects.equals(id, cliente.id);
     }
-
-    //--CRUD-cliente------------------------------------------------------------------------------------------
-    public Cliente nuevoCliente(Cliente cliente, String nombre, String id, String correo, String contrasenia)throws ClienteExcpetion{
-        Cliente nuevoCliente = null;
-        boolean clienteExiste = verificarClienteExiste(id);
-        if (clienteExiste){
-            throw  new clienteException("El cliente con id "+id+" ya está registrado");
-        }else{
-            nuevoCliente = new Cliente();
-            nuevoCliente.setNombre(cliente.getNombre());
-            nuevoCliente.setId(cliente.getId());
-            nuevoCliente.setCorreo(cliente.getCorreo());
-
-            getListaCompradores().add(nuevoCliente);
-        }
-        return nuevoCliente;
-    }
-
-    public void agregarCliente(Cliente nuevoCliente)throws ClienteException{
-        getListaClientes().add(nuevoCliente);
-    }
-
-    public boolean verificarClienteExiste(String id)throws ClienteException{
-        if (clienteExiste(id)){
-            throw new ClienteExeption("El cliente con cédula "+id+" ya exite.");
-        }else{
-            return false;
-        }
-    }
-
-    private boolean clienteExiste(String id){
-        boolean clienteEncontrado = false;
-        for(Cliente cliente: listaClientes){
-            if(cliente.getId().equalsIgnoreCase(id)){
-                clienteEncontrado = true;
-                break;
-            }
-        }
-        return clienteEncontrado;
-    }
-
-    public boolean actualizarCliente(Cliente cliente, String id, String nombre, String correo, String contrasenia)throws ClienteException{
-        Cliente clienteActual = obtenerCliente(id);
-        if (clienteActual == null){
-            throw new ClienteException("El cliente que desea actualizar no existe");
-        }else{
-            clienteActual.setNombre(cliente.getNombre());
-            clienteActual.setId(cliente.getId());
-            clienteActual.setCorreo(cliente.getCorreo());
-            clienteActual.setContrasenia(cliente.getContrasenia());
-            return true;
-        }
-    }
-
-    public Cliente obtenerCLiente(String id){
-        Cliente clienteEncontrado = null;
-        for (Cliente cliente : listaClientes){
-            if(cliente.getId().equalsIgnoreCase(id)) {
-                clienteEncontrado = cliente;
-                break;
-
-            }
-        }
-        return clienteEncontrado;
-    }
-
-    public boolean eliminarCliente(String id)throws ClienteExeption{
-        Cliente cliente = null;
-        boolean flagExiste = false;
-        cliente = obtenerCLiente(id);
-        if (cliente == null){
-            throw new ClienteException("El cliente que desea eliminar no existe.");
-        }else{
-            getListaClientes().remove(cliente);
-            flagExiste = true;
-        }
-        return flagExiste;
-    }
-
 }
