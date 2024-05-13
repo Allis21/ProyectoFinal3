@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="940260d9-b668-4d0b-89e0-977a3f80627e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Persona.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/uniquindio/edu/co/proyectofinal3/inicioSesion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/uniquindio/edu/co/proyectofinal3/inicioSesion.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,13 +27,6 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
