@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="940260d9-b668-4d0b-89e0-977a3f80627e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Boleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Boleto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Evento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/SistemaTaquillera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/SistemaTaquillera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/TipoBoleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/TipoBoleto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -10,6 +10,8 @@ import java.util.Objects;
 public class Evento implements Serializable {
 
     private String nombreEvento;
+
+    private String nombreArtista;
     private String codigoEvento;
     private String ubiacionEvento;
     private LocalDate fehcaEvento;
@@ -17,8 +19,9 @@ public class Evento implements Serializable {
 
     public Evento(){ super(); };
 
-    public Evento(String nombreEvento, String codigoEvento, TipoBoleto tipoBoleto, String ubiacionEvento, LocalDate fehcaEvento) {
+    public Evento(String nombreEvento, String nombreArtista, String codigoEvento, TipoBoleto tipoBoleto, String ubiacionEvento, LocalDate fehcaEvento) {
         this.nombreEvento = nombreEvento;
+        this.nombreArtista = nombreArtista;
         this.codigoEvento = codigoEvento;
         this.ubiacionEvento = ubiacionEvento;
         this.fehcaEvento = fehcaEvento;
@@ -27,6 +30,10 @@ public class Evento implements Serializable {
 
     public String getNombreEvento() { return nombreEvento; }
     public void setNombreEvento(String nombreEvento) { this.nombreEvento = nombreEvento; }
+
+    public String getNombreArtista() { return nombreArtista; }
+
+    public void setNombreArtista(String nombreArtista) { this.nombreArtista = nombreArtista; }
 
     public String getCodigoEvento() { return codigoEvento; }
     public void setCodigoEvento(String codigoEvento) { this.codigoEvento = codigoEvento; }

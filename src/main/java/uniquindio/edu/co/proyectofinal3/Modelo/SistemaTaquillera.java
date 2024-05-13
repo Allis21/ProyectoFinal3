@@ -106,7 +106,7 @@ public class SistemaTaquillera implements Serializable {
 
     //--CRUD-Evento----------------------------------------------------------------------------------------------
 
-    public Evento crearEvento(String nombreEvento, String codigoEvento, String ubiacionEvento, LocalDate fehcaEvento, TipoBoleto tipoBoleto)throws EventoException {
+    public Evento crearEvento(String nombreEvento, String nombreArtista, String codigoEvento, String ubiacionEvento, LocalDate fehcaEvento, TipoBoleto tipoBoleto)throws EventoException {
         Evento nuevoEvento = null;
         boolean eventoExiste = verificarEventoExiste(codigoEvento);
         if(eventoExiste){
@@ -115,6 +115,7 @@ public class SistemaTaquillera implements Serializable {
         }else{
             nuevoEvento = new Evento();
             nuevoEvento.setNombreEvento(nombreEvento);
+            nuevoEvento.setNombreArtista(nombreArtista);
             nuevoEvento.setCodigoEvento(codigoEvento);
             nuevoEvento.setUbiacionEvento(ubiacionEvento);
             nuevoEvento.setFehcaEvento(fehcaEvento);
@@ -156,6 +157,7 @@ public class SistemaTaquillera implements Serializable {
         }else{
             eventoActual.setCodigoEvento(evento.getCodigoEvento());
             eventoActual.setNombreEvento(evento.getNombreEvento());
+            eventoActual.setNombreArtista(evento.getNombreArtista());
             eventoActual.setUbiacionEvento(evento.getUbiacionEvento());
             eventoActual.setFehcaEvento(evento.getFehcaEvento());
             eventoActual.setTipoBoleto(evento.getTipoBoleto());
