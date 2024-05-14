@@ -66,8 +66,8 @@ public class SistemaTaquillera implements Serializable {
         return clienteEncontrado;
     }
 
-    public boolean actualizarCliente(Cliente cliente, String id, String nombre, String correo, String contrasenia)throws ClienteException{
-        Cliente clienteActual = obtenerCLiente(id);
+    public boolean actualizarCliente(Cliente cliente)throws ClienteException{
+        Cliente clienteActual = obtenerCLiente(cliente.getId());
         if (clienteActual == null){
             throw new ClienteException("El cliente que desea actualizar no existe");
         }else{
@@ -106,20 +106,20 @@ public class SistemaTaquillera implements Serializable {
 
     //--CRUD-Evento----------------------------------------------------------------------------------------------
 
-    public Evento crearEvento(String nombreEvento, String nombreArtista, String codigoEvento, String ubiacionEvento, LocalDate fehcaEvento, TipoBoleto tipoBoleto)throws EventoException {
+    public Evento registarEvento(Evento evento )throws EventoException {
         Evento nuevoEvento = null;
-        boolean eventoExiste = verificarEventoExiste(codigoEvento);
+        boolean eventoExiste = verificarEventoExiste(evento.getCodigoEvento());
         if(eventoExiste){
-            throw new EventoException("El evento con código "+codigoEvento+" ya exites.");
+            throw new EventoException("El evento con código "+evento.getCodigoEvento()+" ya exites.");
 
         }else{
             nuevoEvento = new Evento();
-            nuevoEvento.setNombreEvento(nombreEvento);
-            nuevoEvento.setNombreArtista(nombreArtista);
-            nuevoEvento.setCodigoEvento(codigoEvento);
-            nuevoEvento.setUbiacionEvento(ubiacionEvento);
-            nuevoEvento.setFehcaEvento(fehcaEvento);
-            nuevoEvento.setTipoBoleto(tipoBoleto);
+            nuevoEvento.setNombreEvento(evento.getNombreEvento());
+            nuevoEvento.setNombreArtista(evento.getNombreArtista());
+            nuevoEvento.setCodigoEvento(evento.getCodigoEvento());
+            nuevoEvento.setUbiacionEvento(evento.getUbiacionEvento());
+            nuevoEvento.setFehcaEvento(evento.getFehcaEvento());
+            nuevoEvento.setTipoBoleto(evento.getTipoBoleto());
 
             getListaEventos().add(nuevoEvento);
 
@@ -139,7 +139,7 @@ public class SistemaTaquillera implements Serializable {
         }
     }
 
-    private boolean eventoExiste(String codigoEvento){
+    public boolean eventoExistente(String codigoEvento){
         boolean enventoEncontrado = false;
         for (Evento evento: listaEventos){
             if (evento.getCodigoEvento().equalsIgnoreCase(codigoEvento)){
@@ -150,8 +150,8 @@ public class SistemaTaquillera implements Serializable {
         return enventoEncontrado;
     }
 
-    public boolean actualizarEnveto(String codigoEvento, Evento evento)throws EventoException{
-        Evento eventoActual = obtenerEvento(codigoEvento);
+    public boolean actualizarEvento( Evento evento)throws EventoException{
+        Evento eventoActual = obtenerEvento(evento.getCodigoEvento());
         if (eventoActual == null){
             throw  new EventoException("El evento a actualizar no existe.");
         }else{
