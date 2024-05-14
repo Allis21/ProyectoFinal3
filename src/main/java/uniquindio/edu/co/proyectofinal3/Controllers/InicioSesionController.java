@@ -9,17 +9,34 @@ import javafx.scene.control.TextField;
 public class InicioSesionController {
 
     @FXML
-    private Button btnIngresar;
+    private Button btnIniciarSesion;
 
     @FXML
-    private PasswordField contrasenia;
+    private Button btnRegistrarse;
 
     @FXML
-    private TextField identificacion;
+    private TextField txtFieldEmailReg;
 
     @FXML
-    void btnIngresarClicked(ActionEvent event) {
+    private TextField txtFieldIDInicio;
 
+    @FXML
+    private TextField txtFieldIDReg;
+
+    @FXML
+    private TextField txtFieldNombreReg;
+
+    @FXML
+    private TextField txtFieldPWInicio;
+
+    @FXML
+    private PasswordField txtFieldPWReg;
+
+    @FXML
+    void clickedIniciarSesion(ActionEvent event) {
     }
 
+    @FXML
+    void clickedRegistrarse(ActionEvent event) {
+    }
 }
