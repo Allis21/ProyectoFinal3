@@ -27,11 +27,11 @@ public class SistemaTaquillera implements Serializable {
 
 
     //--CRUD-cliente------------------------------------------------------------------------------------------
-    public Cliente nuevoCliente(Cliente cliente, String nombre, String id, String correo, String contrasenia)throws ClienteException {
+    public Cliente registrarCliente(Cliente cliente)throws ClienteException {
         Cliente nuevoCliente = null;
-        boolean clienteExiste = verificarClienteExiste(id);
+        boolean clienteExiste = verificarClienteExiste(cliente.getId());
         if (clienteExiste){
-            throw  new ClienteException("El cliente con id "+id+" ya está registrado");
+            throw  new ClienteException("El cliente con id "+cliente.getId()+" ya está registrado");
         }else{
             nuevoCliente = new Cliente();
             nuevoCliente.setNombre(cliente.getNombre());
@@ -48,14 +48,14 @@ public class SistemaTaquillera implements Serializable {
     }
 
     public boolean verificarClienteExiste(String id)throws ClienteException{
-        if (clienteExiste(id)){
+        if (clienteExistente(id)){
             throw new ClienteException("El cliente con cédula "+id+" ya exite.");
         }else{
             return false;
         }
     }
 
-    private boolean clienteExiste(String id){
+    public boolean clienteExistente(String id){
         boolean clienteEncontrado = false;
         for(Cliente cliente: listaClientes){
             if(cliente.getId().equalsIgnoreCase(id)){
@@ -188,5 +188,8 @@ public class SistemaTaquillera implements Serializable {
         }
         return flagExiste;
     }
+
+
+
 
 }
