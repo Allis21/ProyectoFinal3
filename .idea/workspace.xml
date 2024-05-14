@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="940260d9-b668-4d0b-89e0-977a3f80627e" name="Changes" comment="">
+    <list default="true" id="d3033f95-4d10-4540-ae1d-1023dec07aac" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Exepciones/ClienteException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Exepciones/EventoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Boleto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Boleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Boleto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Evento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/SistemaTaquillera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/SistemaTaquillera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/TipoBoleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/TipoBoleto.java" afterDir="false" />
@@ -17,104 +20,40 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2g9Brib9Eatfvls50S19tExkOl3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2gR2Uo5nVjy57WFFTJbu7acvEpt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Documents/GitHub/ProyectoFinal3/src/main/resources/Media&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging main",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Admin\Documents\GitHub\ProyectoFinal3\src\main\resources\Media" />
-    </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
-      </set>
-    </attachedChunks>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="940260d9-b668-4d0b-89e0-977a3f80627e" name="Changes" comment="" />
-      <created>1715100116381</created>
+      <changelist id="d3033f95-4d10-4540-ae1d-1023dec07aac" name="Changes" comment="" />
+      <created>1715646089792</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1715100116381</updated>
-      <workItem from="1715100117541" duration="3892000" />
-      <workItem from="1715476237947" duration="1030000" />
-      <workItem from="1715484667422" duration="1115000" />
-      <workItem from="1715486867468" duration="366000" />
-      <workItem from="1715531785304" duration="1163000" />
-      <workItem from="1715549738896" duration="10020000" />
-      <workItem from="1715590506808" duration="2186000" />
+      <updated>1715646089792</updated>
+      <workItem from="1715646091416" duration="116000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="856bc25d-0f85-4f2b-88e7-904e4451e30f" value="TOOL_WINDOW" />
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="856bc25d-0f85-4f2b-88e7-904e4451e30f">
-          <value>
-            <State />
-          </value>
-        </entry>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
