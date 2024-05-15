@@ -5,12 +5,17 @@ import uniquindio.edu.co.proyectofinal3.Exepciones.EventoException;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class SistemaTaquillera implements Serializable {
 
-   private String nombreEven;
-
+    private String nombreEven;
+    private boolean taquillaAbierta = false;
     private ArrayList<Cliente> listaClientes = new ArrayList<>();
     private ArrayList<Evento>listaEventos = new ArrayList<>();
 
@@ -18,13 +23,37 @@ public class SistemaTaquillera implements Serializable {
     public ArrayList<Evento> getListaEventos(){return listaEventos;}
 
     public SistemaTaquillera(){ super(); }
+    public SistemaTaquillera(String nombreEven, boolean taquillaAbierta) {
+        this.nombreEven = nombreEven;
+        this.taquillaAbierta = taquillaAbierta;
+    }
 
-    public SistemaTaquillera(String nombreEven) { this.nombreEven = nombreEven; }
+    public boolean isTaquillaAbierta() {
+        return taquillaAbierta;
+    }
+
+    public void setTaquillaAbierta(boolean taquillaAbierta) {
+        this.taquillaAbierta = taquillaAbierta;
+    }
 
     public String getNombreEven() { return nombreEven; }
 
     public void setNombreEven(String nombreEven) { this.nombreEven = nombreEven; }
 
+    // Apertura de la taquilla virtual a una hora específica
+    public void abrirTaquilla(LocalTime horaApertura) {
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        long delayApertura = LocalTime.now().until(horaApertura, ChronoUnit.MINUTES);
+
+        scheduler.schedule(() -> taquillaAbierta = true, delayApertura, TimeUnit.MINUTES);
+    }
+    // El cierre de taquilla debe ser una hora antes del evento
+    public void cerrarTaquilla(LocalTime horaEvento) {
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        long delayCierre = LocalTime.now().until(horaEvento.minusHours(1), ChronoUnit.MINUTES);
+
+        scheduler.schedule(() -> taquillaAbierta = false, delayCierre, TimeUnit.MINUTES);
+    }
 
     //--CRUD-cliente------------------------------------------------------------------------------------------
     public Cliente registrarCliente(Cliente cliente)throws ClienteException {
@@ -122,6 +151,9 @@ public class SistemaTaquillera implements Serializable {
             nuevoEvento.setTipoBoleto(evento.getTipoBoleto());
 
             getListaEventos().add(nuevoEvento);
+            
+            LocalTime horaEvento = nuevoEvento.getFehcaEvento().atStartOfDay().plusHours(1).toLocalTime();
+            cerrarTaquilla(horaEvento);
 
         }
         return nuevoEvento;

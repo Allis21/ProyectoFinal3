@@ -1,15 +1,21 @@
 package uniquindio.edu.co.proyectofinal3.Modelo;
 
+import java.time.LocalTime;
+
 public class Administrador {
 
    private String idAdmin;
    private String conAdmin;
 
+   private SistemaTaquillera sistemaTaquillera;
+
     public Administrador(String idAdmin, String conAdmin) {
         this.idAdmin = idAdmin;
         this.conAdmin = conAdmin;
     }
-
+    public void abrirTaquilla(LocalTime horaApertura){
+        sistemaTaquillera.abrirTaquilla(horaApertura);
+    }
     public String getIdAdmin() { return idAdmin; }
 
     public void setIdAdmin(String idAdmin) { this.idAdmin = idAdmin; }

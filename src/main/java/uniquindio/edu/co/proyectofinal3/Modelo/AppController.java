@@ -2,12 +2,11 @@ package uniquindio.edu.co.proyectofinal3.Modelo;
 
 public enum AppController {
     INSTANCE;
-    private Evento evento;
+    private SistemaTaquillera sistemaTaquillera;
 
-    AppController() {
-        evento = new Evento();
+    AppController() {sistemaTaquillera = new SistemaTaquillera();
     }
-    public Evento getEvento(){
-        return evento;
+    public SistemaTaquillera getSistemaTaquillera() {
+        return sistemaTaquillera;
     }
 }
