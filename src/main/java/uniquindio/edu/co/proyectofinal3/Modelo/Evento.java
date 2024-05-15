@@ -10,7 +10,6 @@ import java.util.Objects;
 public class Evento implements Serializable {
 
     private String nombreEvento;
-
     private String nombreArtista;
     private String codigoEvento;
     private String ubiacionEvento;
