@@ -1,6 +1,10 @@
 package uniquindio.edu.co.proyectofinal3.Modelo;
 
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class Administrador {
 
@@ -16,6 +20,7 @@ public class Administrador {
     public void abrirTaquilla(LocalTime horaApertura){
         sistemaTaquillera.abrirTaquilla(horaApertura);
     }
+
     public String getIdAdmin() { return idAdmin; }
 
     public void setIdAdmin(String idAdmin) { this.idAdmin = idAdmin; }

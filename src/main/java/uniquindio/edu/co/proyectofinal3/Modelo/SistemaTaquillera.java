@@ -42,6 +42,7 @@ public class SistemaTaquillera implements Serializable {
 
     // Apertura de la taquilla virtual a una hora específica
     public void abrirTaquilla(LocalTime horaApertura) {
+
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         long delayApertura = LocalTime.now().until(horaApertura, ChronoUnit.MINUTES);
 
@@ -151,7 +152,7 @@ public class SistemaTaquillera implements Serializable {
             nuevoEvento.setTipoBoleto(evento.getTipoBoleto());
 
             getListaEventos().add(nuevoEvento);
-            
+
             LocalTime horaEvento = nuevoEvento.getFehcaEvento().atStartOfDay().plusHours(1).toLocalTime();
             cerrarTaquilla(horaEvento);
 
