@@ -4,7 +4,8 @@ public enum AppController {
     INSTANCE;
     private SistemaTaquillera sistemaTaquillera;
 
-    AppController() {sistemaTaquillera = new SistemaTaquillera();
+    AppController() {
+        sistemaTaquillera = new SistemaTaquillera();
     }
     public SistemaTaquillera getSistemaTaquillera() {
         return sistemaTaquillera;

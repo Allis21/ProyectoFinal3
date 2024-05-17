@@ -15,8 +15,13 @@ public class Evento implements Serializable {
     private String ubiacionEvento;
     private LocalDate fehcaEvento;
     private TipoBoleto tipoBoleto;
+    private int boletosDisponibles;
 
     public Evento(){ super(); };
+
+    public Evento(int boletosDisponibles) {
+        this.boletosDisponibles = boletosDisponibles;
+    }
 
     public Evento(String nombreEvento, String nombreArtista, String codigoEvento, TipoBoleto tipoBoleto, String ubiacionEvento, LocalDate fehcaEvento) {
         this.nombreEvento = nombreEvento;
@@ -35,6 +40,15 @@ public class Evento implements Serializable {
     public void setNombreArtista(String nombreArtista) { this.nombreArtista = nombreArtista; }
 
     public String getCodigoEvento() { return codigoEvento; }
+
+    public int getBoletosDisponibles() {
+        return boletosDisponibles;
+    }
+
+    public void setBoletosDisponibles(int boletosDisponibles) {
+        this.boletosDisponibles = boletosDisponibles;
+    }
+
     public void setCodigoEvento(String codigoEvento) { this.codigoEvento = codigoEvento; }
 
     public String getUbiacionEvento() { return ubiacionEvento; }

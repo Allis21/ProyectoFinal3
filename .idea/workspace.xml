@@ -32,6 +32,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.SistemaTaquillera.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ProyectoFinal3 [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ProyectoFinal3 [compile].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -46,6 +49,26 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="SistemaTaquillera" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uniquindio.edu.co.proyectofinal3.Modelo.SistemaTaquillera" />
+      <module name="ProyectoFinal3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uniquindio.edu.co.proyectofinal3.Modelo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SistemaTaquillera" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -58,7 +81,10 @@
       <workItem from="1715747112959" duration="2371000" />
       <workItem from="1715787445608" duration="247000" />
       <workItem from="1715796789787" duration="3332000" />
-      <workItem from="1715811413361" duration="619000" />
+      <workItem from="1715811413361" duration="621000" />
+      <workItem from="1715869957109" duration="2631000" />
+      <workItem from="1715872609741" duration="6145000" />
+      <workItem from="1715909272899" duration="1324000" />
     </task>
     <servers />
   </component>
