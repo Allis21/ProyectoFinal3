@@ -8,10 +8,7 @@ import java.util.Objects;
 
 public class Cliente implements Serializable {
 
-    private String nombre;
-    private String id;
-    private String correo;
-    private String contrasenia;
+    private String nombre, id, correo, contrasenia;
 
 
 

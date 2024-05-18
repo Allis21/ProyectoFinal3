@@ -155,7 +155,7 @@ public class SistemaTaquillera implements Serializable {
         Cliente nuevoCliente = null;
         boolean clienteExiste = verificarClienteExiste(cliente.getId());
         if (clienteExiste){
-            throw  new ClienteException("El cliente con id "+cliente.getId()+" ya está registrado");
+            throw new ClienteException("El cliente con id "+cliente.getId()+" ya está registrado");
         }else{
             nuevoCliente = new Cliente();
             nuevoCliente.setNombre(cliente.getNombre());
@@ -315,8 +315,4 @@ public class SistemaTaquillera implements Serializable {
         }
         return flagExiste;
     }
-
 }
-
-
-
