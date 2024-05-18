@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.proyectofinal3.Controllers.ClienteController">
+    <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <BorderPane layoutX="-33.0" layoutY="14.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <top>
+                        <AnchorPane prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #00a6dd;" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label layoutX="14.0" layoutY="15.0" text="BE - UQ" textFill="WHITE">
+                                    <font>
+                                        <Font name="Arial Bold Italic" size="10.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="btnCerrarSesion" layoutX="1013.0" layoutY="10.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ff4f95;" text="Cerrar Sesión" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="10.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </top>
+                    <left>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+                            <children>
+                                <ImageView fitHeight="126.0" fitWidth="128.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../Media/Logo.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="41.0" layoutY="140.0" text="BIENVENIDO" textFill="WHITE">
+                                    <font>
+                                        <Font name="Microsoft Yi Baiti" size="25.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="65.0" layoutY="170.0" text="BE - UQ" textFill="WHITE">
+                                    <font>
+                                        <Font name="Microsoft YaHei UI Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Line endX="73.0" layoutX="113.0" layoutY="205.0" startX="-100.0" stroke="WHITE" />
+                                <Button fx:id="btnMaterias" alignment="TOP_LEFT" layoutY="222.0" minHeight="50.0" mnemonicParsing="false" onAction="#mostrarPanelMaterias" prefWidth="200.0" style="-fx-background-color: #000000;" text="Eventos " textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnProfesor" alignment="TOP_LEFT" layoutY="272.0" minHeight="50.0" mnemonicParsing="false" onAction="#mostrarPanelProfesor" prefWidth="200.0" style="-fx-background-color: #000000;" text="Carrito" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                </Button>
+                                <Circle fill="WHITE" layoutX="169.0" layoutY="247.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
+                                <Circle fill="WHITE" layoutX="169.0" layoutY="297.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
+                            </children>
+                        </AnchorPane>
+                    </left>
+                    <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane fx:id="panelMaterias" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
+                                    <children>
+                                        <TableView fx:id="tablaMaterias" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0">
+                                            <columns>
+                                                <TableColumn fx:id="columnNombreMateria" prefWidth="240.0" text="Nombre" />
+                                                <TableColumn fx:id="columnCodigoMateria" minWidth="0.0" prefWidth="189.0" text="Codigo" />
+                                                <TableColumn fx:id="columnCapacidadMateria" minWidth="0.0" prefWidth="90.0" text="Capacidad" />
+                                                <TableColumn fx:id="columnEstadoMateria" minWidth="1.0" prefWidth="92.0" text="Estado " />
+                                                <TableColumn fx:id="columnHabilitableMateria" prefWidth="69.0" text="Habilitable" />
+                                                <TableColumn fx:id="columnProfesorMateria" prefWidth="169.0" text="Profesor" />
+                                            </columns>
+                                        </TableView>
+                                        <Label layoutX="14.0" layoutY="338.0" text="Nombre:">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="369.0" layoutY="338.0" text="Código:">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="15.0" layoutY="408.0" text="Capacidad:">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="636.0" layoutY="338.0" text="Estado:">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="15.0" layoutY="476.0" text="Habilitable:">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="nombreMateria" alignment="CENTER" layoutX="85.0" layoutY="336.0" prefHeight="25.0" prefWidth="237.0" promptText="Ingrese el Nombre " />
+                                        <TextField fx:id="codigoMateria" alignment="CENTER" layoutX="428.0" layoutY="336.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese el Código" />
+                                        <TextField fx:id="estadoMateria" alignment="CENTER" layoutX="690.0" layoutY="336.0" prefHeight="25.0" prefWidth="110.0" promptText="TRUE/FALSE" />
+                                        <TextField fx:id="capacidadMateria" alignment="CENTER" layoutX="95.0" layoutY="408.0" prefHeight="25.0" prefWidth="57.0" promptText="MAX" />
+                                        <Button fx:id="btnEliminarMateria" layoutX="765.0" layoutY="244.0" mnemonicParsing="false" onAction="#eliminarMateriaClicked" prefHeight="40.0" prefWidth="100.0" text="Eliminar" textFill="WHITE" />
+                                        <Button fx:id="btnActualizarMateria" layoutX="634.0" layoutY="244.0" mnemonicParsing="false" onAction="#actualizarMateriaClicked" prefHeight="40.0" prefWidth="100.0" text="Actualizar" textFill="WHITE" />
+                                        <Button fx:id="btnAddMateria" layoutX="503.0" layoutY="244.0" mnemonicParsing="false" onAction="#addMateriaClicked" prefHeight="40.0" prefWidth="100.0" text="Añadir" textFill="WHITE" />
+                                        <Line endX="207.0" layoutX="282.0" layoutY="264.0" startX="-267.0" />
+                                        <Label layoutX="85.0" layoutY="269.0" text="REGISTRO Y MANEJO DE MATERIAS">
+                                            <font>
+                                                <Font name="System Bold Italic" size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="btnClearMateria" layoutX="252.0" layoutY="467.0" mnemonicParsing="false" onAction="#clearMateriaClicked" prefHeight="40.0" prefWidth="551.0" text="Clear" />
+                                        <Label layoutX="225.0" layoutY="410.0" text="Profesor Asignado a la Materia (ID):">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="IDProfesorAsignado" alignment="CENTER" layoutX="467.0" layoutY="408.0" prefHeight="25.0" prefWidth="184.0" promptText="ID" />
+                                        <TextField fx:id="habilitableMateria" alignment="CENTER" layoutX="95.0" layoutY="475.0" prefHeight="25.0" prefWidth="136.0" promptText="TRUE/FALSE" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="panelProfesor" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
+                                    <children>
+                                        <TableView fx:id="tablaProfesores" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0">
+                                            <columns>
+                                                <TableColumn fx:id="columnNombreProfesor" prefWidth="474.0" text="Nombre" />
+                                                <TableColumn fx:id="columnIDProfesor" minWidth="0.0" prefWidth="375.0" text="Identificacion" />
+                                            </columns>
+                                        </TableView>
+                                        <Label layoutX="411.0" layoutY="326.0" text="Nombre:">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="395.0" layoutY="391.0" text="Identificación:">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="nombreProfesor" alignment="CENTER" layoutX="191.0" layoutY="347.0" prefHeight="25.0" prefWidth="500.0" promptText="Nombre Completo" />
+                                        <TextField fx:id="identificacionProfesor" alignment="CENTER" layoutX="190.0" layoutY="412.0" prefHeight="25.0" prefWidth="500.0" promptText="Ingrese la Identificación" />
+                                        <Button fx:id="btnEliminarProfesor" layoutX="765.0" layoutY="244.0" mnemonicParsing="false" onAction="#eliminarProfesorClicked" prefHeight="40.0" prefWidth="100.0" text="Eliminar" textFill="WHITE" />
+                                        <Button fx:id="btnActualizarProfesor" layoutX="634.0" layoutY="244.0" mnemonicParsing="false" onAction="#actualizarProfesorClicked" prefHeight="40.0" prefWidth="100.0" text="Actualizar" textFill="WHITE" />
+                                        <Button fx:id="btnAddProfesor" layoutX="503.0" layoutY="244.0" mnemonicParsing="false" onAction="#addProfesorClicked" prefHeight="40.0" prefWidth="100.0" text="Añadir" textFill="WHITE" />
+                                        <Line endX="207.0" layoutX="282.0" layoutY="264.0" startX="-267.0" />
+                                        <Label layoutX="73.0" layoutY="269.0" text="REGISTRO Y MANEJO DE PROFESORES">
+                                            <font>
+                                                <Font name="System Bold Italic" size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="btnClearProfesor" layoutX="165.0" layoutY="471.0" mnemonicParsing="false" onAction="#clearProfesroClicked" prefHeight="40.0" prefWidth="551.0" text="Clear" />
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
