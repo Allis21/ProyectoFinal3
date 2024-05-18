@@ -150,6 +150,7 @@ public class SistemaTaquillera implements Serializable {
 
         scheduler.schedule(() -> taquillaAbierta = false, delayCierre, TimeUnit.MINUTES);
     }
+    
     //--CRUD-cliente------------------------------------------------------------------------------------------
     public Cliente registrarCliente(Cliente cliente)throws ClienteException {
         Cliente nuevoCliente = null;
