@@ -115,7 +115,6 @@ public class SistemaTaquillera implements Serializable {
     //Utilice hilos para que solo 3 personas puedan acceder simultáneamente a comprar sus
     //boletas mientras los demás siguen en espera.
     public void comprarBoletos(Cliente cliente, Evento evento, int cantidadBoletos) throws InterruptedException {
-        try {
             semaforo.acquire();
             if (taquillaAbierta) {
                 if (evento.getBoletosDisponibles() >= cantidadBoletos) {
@@ -129,9 +128,6 @@ public class SistemaTaquillera implements Serializable {
                 System.out.println("La taquilla está cerrada");
             }
             semaforo.release();
-        }catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     // Apertura de la taquilla virtual a una hora específica
