@@ -8,11 +8,7 @@
       </list>
     </option>
   </component>
-<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="semeru-21" project-jdk-type="JavaSDK">
-=======
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="22" project-jdk-type="JavaSDK">
->>>>>>> 6b5bb4bb9a34c5dcd05b2866d74549889153caa2
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
