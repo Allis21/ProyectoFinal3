@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3033f95-4d10-4540-ae1d-1023dec07aac" name="Changes" comment="" />
+    <list default="true" id="d3033f95-4d10-4540-ae1d-1023dec07aac" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Exepciones/ClienteNoExisteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Exepciones/ClienteNoExisteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Exepciones/DatosInvalidosClienteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Exepciones/DatosInvalidosClienteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Exepciones/DatosInvalidosEventoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Exepciones/DatosInvalidosEventoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Exepciones/EventoNoExisteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Exepciones/EventoNoExisteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/SistemaTaquillera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/edu/co/proyectofinal3/Modelo/SistemaTaquillera.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +34,9 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2gR2Uo5nVjy57WFFTJbu7acvEpt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,17 +49,26 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+<<<<<<< HEAD
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/allis/IdeaProjects/ProyectoHilos",
+=======
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Usuario/IdeaProjects/Agencia de viajes nuevo",
+>>>>>>> 6b5bb4bb9a34c5dcd05b2866d74549889153caa2
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+<<<<<<< HEAD
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.general",
+=======
+>>>>>>> 6b5bb4bb9a34c5dcd05b2866d74549889153caa2
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -77,7 +97,11 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+<<<<<<< HEAD
         <option value="jdk-21.0.2-semeru-21.0.2-4caba194b151-2a6dbd63" />
+=======
+        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+>>>>>>> 6b5bb4bb9a34c5dcd05b2866d74549889153caa2
       </set>
     </attachedChunks>
   </component>
@@ -96,8 +120,13 @@
       <workItem from="1715811413361" duration="621000" />
       <workItem from="1715869957109" duration="2631000" />
       <workItem from="1715872609741" duration="6145000" />
+<<<<<<< HEAD
       <workItem from="1715909272899" duration="2663000" />
       <workItem from="1716072737338" duration="485000" />
+=======
+      <workItem from="1715909272899" duration="1324000" />
+      <workItem from="1716053580414" duration="9195000" />
+>>>>>>> 6b5bb4bb9a34c5dcd05b2866d74549889153caa2
     </task>
     <servers />
   </component>

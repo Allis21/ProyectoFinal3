@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.proyectofinal3.Controllers.ClienteController">
+    <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <BorderPane layoutX="-33.0" layoutY="14.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <top>
+                        <AnchorPane prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #00a6dd;" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label layoutX="14.0" layoutY="15.0" text="BE - UQ" textFill="WHITE">
+                                    <font>
+                                        <Font name="Arial Bold Italic" size="10.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="btnCerrarSesion" layoutX="1013.0" layoutY="10.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ff4f95;" text="Cerrar Sesión" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="10.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </top>
+                    <left>
+                        <AnchorPane prefHeight="550.0" prefWidth="183.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+                            <children>
+                                <ImageView fitHeight="126.0" fitWidth="128.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../Media/Logo.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="41.0" layoutY="140.0" text="BIENVENIDO" textFill="WHITE">
+                                    <font>
+                                        <Font name="Microsoft Yi Baiti" size="25.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="65.0" layoutY="170.0" text="BE - UQ" textFill="WHITE">
+                                    <font>
+                                        <Font name="Microsoft YaHei UI Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Line endX="73.0" layoutX="113.0" layoutY="205.0" startX="-100.0" stroke="WHITE" />
+                                <Button fx:id="btnEventos" layoutY="222.0" minHeight="50.0" mnemonicParsing="false" onAction="#mostrarPanelEventos" prefWidth="200.0" style="-fx-background-color: #000000;" text="Eventos " textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                </Button>
+                                <Circle fill="WHITE" layoutX="169.0" layoutY="247.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
+                        <Button fx:id="btnCarrito" alignment="TOP_LEFT" layoutX="75.0" layoutY="283.0" minHeight="47.0" mnemonicParsing="false" onAction="#mostrarPanelFactura" prefHeight="47.0" prefWidth="55.0" style="-fx-background-color: #000000;" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="53.0" fitWidth="88.0" layoutX="66.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Media/CarritoCompras.png" />
+                           </image>
+                        </ImageView>
+                                <Circle fill="#ff4f95" layoutX="169.0" layoutY="307.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
+                        <ImageView fitHeight="206.0" fitWidth="201.0" layoutX="-1.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Media/Vector2.png" />
+                           </image>
+                        </ImageView>
+                            </children>
+                        </AnchorPane>
+                    </left>
+                    <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff4f95;" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane fx:id="panelEventos" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
+                                    <children>
+                                        <TableView fx:id="tablaEventos" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0">
+                                            <columns>
+                                                <TableColumn fx:id="columnNombreMateria" prefWidth="240.0" text="Nombre" />
+                                                <TableColumn fx:id="columnCodigoMateria" minWidth="0.0" prefWidth="189.0" text="Invitado/s" />
+                                                <TableColumn fx:id="columnCapacidadMateria" minWidth="0.0" prefWidth="185.0" text="Lugar" />
+                                                <TableColumn fx:id="columnEstadoMateria" minWidth="1.0" prefWidth="235.0" text="Fecha" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="panelFactura" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
+                                    <children>
+                                        <TableView fx:id="tablaFactura" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0">
+                                            <columns>
+                                                <TableColumn fx:id="columnNombreEventoFac" prefWidth="236.0" text="Nombre" />
+                                                <TableColumn fx:id="columnCodigoEventoFac" minWidth="0.0" prefWidth="286.0" text="Codigo Del Evento" />
+                                    <TableColumn fx:id="columnBoletasOroFac" prefWidth="64.0" text="Oro" />
+                                    <TableColumn fx:id="columnBoletasPlataFac" prefWidth="71.0" text="Plata" />
+                                    <TableColumn fx:id="columnBoletasBronceFac" prefWidth="74.0" text="Cobre" />
+                                    <TableColumn fx:id="columnValorFac" prefWidth="118.0" text="Valor " />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

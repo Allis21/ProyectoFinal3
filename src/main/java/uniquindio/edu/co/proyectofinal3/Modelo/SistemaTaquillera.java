@@ -146,12 +146,13 @@ public class SistemaTaquillera implements Serializable {
 
         scheduler.schedule(() -> taquillaAbierta = false, delayCierre, TimeUnit.MINUTES);
     }
+    
     //--CRUD-cliente------------------------------------------------------------------------------------------
     public Cliente registrarCliente(Cliente cliente)throws ClienteException {
         Cliente nuevoCliente = null;
         boolean clienteExiste = verificarClienteExiste(cliente.getId());
         if (clienteExiste){
-            throw  new ClienteException("El cliente con id "+cliente.getId()+" ya está registrado");
+            throw new ClienteException("El cliente con id "+cliente.getId()+" ya está registrado");
         }else{
             nuevoCliente = new Cliente();
             nuevoCliente.setNombre(cliente.getNombre());
@@ -311,8 +312,4 @@ public class SistemaTaquillera implements Serializable {
         }
         return flagExiste;
     }
-
 }
-
-
-
