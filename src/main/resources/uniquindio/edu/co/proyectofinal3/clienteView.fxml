@@ -37,6 +37,11 @@
                     <left>
                         <AnchorPane prefHeight="550.0" prefWidth="183.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
                             <children>
+                        <ImageView fitHeight="53.0" fitWidth="88.0" layoutX="66.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Media/CarritoCompras.png" />
+                           </image>
+                        </ImageView>
                                 <ImageView fitHeight="126.0" fitWidth="128.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../../../../Media/Logo.png" />
@@ -59,16 +64,11 @@
                                     </font>
                                 </Button>
                                 <Circle fill="WHITE" layoutX="169.0" layoutY="247.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
-                        <Button fx:id="btnCarrito" alignment="TOP_LEFT" layoutX="75.0" layoutY="283.0" minHeight="47.0" mnemonicParsing="false" onAction="#mostrarPanelFactura" prefHeight="47.0" prefWidth="55.0" style="-fx-background-color: #000000;" textFill="WHITE">
+                        <Button fx:id="btnCarrito" alignment="TOP_LEFT" layoutX="75.0" layoutY="283.0" minHeight="47.0" mnemonicParsing="false" onAction="#mostrarPanelFactura" opacity="0.0" prefHeight="47.0" prefWidth="55.0" style="-fx-background-color: #000000;" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Button>
-                        <ImageView fitHeight="53.0" fitWidth="88.0" layoutX="66.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Media/CarritoCompras.png" />
-                           </image>
-                        </ImageView>
                                 <Circle fill="#ff4f95" layoutX="169.0" layoutY="307.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
                         <ImageView fitHeight="206.0" fitWidth="201.0" layoutX="-1.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
                            <image>

@@ -11,7 +11,6 @@ import uniquindio.edu.co.proyectofinal3.Modelo.Cliente;
 import uniquindio.edu.co.proyectofinal3.Modelo.SistemaTaquillera;
 
 public class InicioSesionController {
-
     SistemaTaquillera sistemaTaquillera = AppController.INSTANCE.getSistemaTaquillera();
 
     @FXML
@@ -40,7 +39,6 @@ public class InicioSesionController {
 
     @FXML
     void clickedIniciarSesion(ActionEvent event) {
-
     }
 
     @FXML
