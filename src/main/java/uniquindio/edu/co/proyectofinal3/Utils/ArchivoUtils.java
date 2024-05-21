@@ -1,5 +1,7 @@
 package uniquindio.edu.co.proyectofinal3.Utils;
 
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.*;
 
 public class ArchivoUtils {
@@ -14,6 +16,22 @@ public class ArchivoUtils {
         ois.close();
         return objeto;
     }
+
+    //SERIALIZAR EN UN ARCHIVO XML
+
+    public void serializarObjetoXML(String ruta, Object objeto) throws Exception{
+        XMLEncoder encoder = new XMLEncoder(new FileOutputStream(ruta));
+        encoder.writeObject(objeto);
+        encoder.close();
+    }
+
+    public static Object deserializarObjetoXML(String ruta) throws Exception{
+        XMLDecoder decoder = new XMLDecoder(new FileInputStream(ruta));
+        Object objeto = decoder.readObject();
+        decoder.close();
+        return objeto;
+    }
+
 
 
 

@@ -1,6 +1,7 @@
 module uniquindio.edu.co.proyectofinal3 {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens uniquindio.edu.co.proyectofinal3 to javafx.fxml;
