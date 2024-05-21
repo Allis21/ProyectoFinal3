@@ -31,8 +31,4 @@ public class ArchivoUtils {
         decoder.close();
         return objeto;
     }
-
-
-
-
 }

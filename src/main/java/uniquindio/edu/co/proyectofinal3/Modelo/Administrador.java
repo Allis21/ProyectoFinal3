@@ -8,16 +8,9 @@ public class Administrador {
    private String idAdmin;
    private String conAdmin;
 
-   private SistemaTaquillera sistemaTaquillera;
-
-    public Administrador(String idAdmin, String conAdmin, SistemaTaquillera sistemaTaquillera) {
+    public Administrador(String idAdmin, String conAdmin) {
         this.idAdmin = idAdmin;
         this.conAdmin = conAdmin;
-        this.sistemaTaquillera = sistemaTaquillera;
-    }
-
-    public void abrirTaquilla(LocalTime horaApertura){
-        sistemaTaquillera.abrirTaquilla(horaApertura);
     }
 
     public String getIdAdmin() { return idAdmin; }

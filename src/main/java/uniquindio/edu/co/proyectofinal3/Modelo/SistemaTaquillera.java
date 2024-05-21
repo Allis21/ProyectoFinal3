@@ -23,13 +23,7 @@ public class SistemaTaquillera implements Serializable {
     public ArrayList<Evento> getListaEventos(){return listaEventos;}
 
     public SistemaTaquillera() {
-        super();
-    }
-
-    public SistemaTaquillera(Administrador administrador, String nombreEven, boolean taquillaAbierta) {
-        this.administrador = administrador;
-        this.nombreEven = nombreEven;
-        this.taquillaAbierta = taquillaAbierta;
+        this.administrador = new Administrador("777", "abc");
     }
 
     public Administrador getAdministrador() {
