@@ -64,7 +64,7 @@
                                     </font>
                                 </Button>
                                 <Circle fill="WHITE" layoutX="169.0" layoutY="247.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
-                        <Button fx:id="btnCarrito" alignment="TOP_LEFT" layoutX="75.0" layoutY="283.0" minHeight="47.0" mnemonicParsing="false" onAction="#mostrarPanelFactura" opacity="0.0" prefHeight="47.0" prefWidth="55.0" style="-fx-background-color: #000000;" textFill="WHITE">
+                        <Button fx:id="btnCarrito" alignment="TOP_LEFT" layoutX="60.0" layoutY="283.0" minHeight="47.0" mnemonicParsing="false" onAction="#mostrarPanelFactura" opacity="0.0" prefHeight="47.0" prefWidth="88.0" style="-fx-background-color: #000000;" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
@@ -95,7 +95,7 @@
                                 </AnchorPane>
                                 <AnchorPane fx:id="panelFactura" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
                                     <children>
-                                        <TableView fx:id="tablaFactura" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0">
+                                        <TableView fx:id="tablaFactura" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0" visible="false">
                                             <columns>
                                                 <TableColumn fx:id="columnNombreEventoFac" prefWidth="236.0" text="Nombre" />
                                                 <TableColumn fx:id="columnCodigoEventoFac" minWidth="0.0" prefWidth="286.0" text="Codigo Del Evento" />
@@ -107,6 +107,41 @@
                                         </TableView>
                                     </children>
                                 </AnchorPane>
+                        <Circle fill="WHITE" layoutX="122.0" layoutY="306.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="122.0" layoutY="367.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
+                        <ImageView fitHeight="58.0" fitWidth="137.0" layoutX="150.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../../../Desktop/Imagenes%20proyecto/pse-logo.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="51.0" fitWidth="91.0" layoutX="150.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../../../Desktop/Imagenes%20proyecto/Visa.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="77.0" fitWidth="102.0" layoutX="150.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../../../Desktop/Imagenes%20proyecto/MasterCard.png" />
+                           </image>
+                        </ImageView>
+                        <Circle fill="WHITE" layoutX="122.0" layoutY="434.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="343.0" layoutY="342.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="343.0" layoutY="403.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
+                        <ImageView fitHeight="54.0" fitWidth="39.0" layoutX="373.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../../../Desktop/Imagenes%20proyecto/Nequi.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="80.0" fitWidth="102.0" layoutX="361.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../../../Desktop/Imagenes%20proyecto/Daviplata.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="btnPSE" layoutX="102.0" layoutY="293.0" mnemonicParsing="false" onAction="#pagoPSE" opacity="0.0" prefHeight="19.0" prefWidth="39.0" text="PSE" />
+                        <Button fx:id="btnVISA" layoutX="102.0" layoutY="354.0" mnemonicParsing="false" onAction="#pagoVISA" opacity="0.0" prefHeight="19.0" prefWidth="39.0" text="VISA" />
+                        <Button fx:id="btnMasterdCard" layoutX="102.0" layoutY="421.0" mnemonicParsing="false" onAction="#pagoMasterCard" opacity="0.0" prefHeight="19.0" prefWidth="39.0" text="MasterCard" />
+                        <Button fx:id="btnNequi" layoutX="323.0" layoutY="329.0" mnemonicParsing="false" onAction="#pagoNequi" opacity="0.0" prefHeight="19.0" prefWidth="39.0" text="Nequi" />
+                        <Button fx:id="btnDaviplata" layoutX="323.0" layoutY="390.0" mnemonicParsing="false" onAction="#pagoDaviplata" opacity="0.0" prefHeight="19.0" prefWidth="39.0" text="Daviplata" />
                             </children>
                         </AnchorPane>
                     </center>
