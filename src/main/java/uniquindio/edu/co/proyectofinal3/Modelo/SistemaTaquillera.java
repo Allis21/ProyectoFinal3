@@ -50,14 +50,6 @@ public class SistemaTaquillera implements Serializable {
         this.taquillaAbierta = taquillaAbierta;
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        SistemaTaquillera sistemaTaquillera = new SistemaTaquillera();
-        sistemaTaquillera.setTaquillaAbierta(true); // Abre la taquilla
-
-        // Iniciar la compra de boletos
-        sistemaTaquillera.iniciarCompraBoletos();
-
-    }
     public void iniciarCompraBoletos() {
         // Crear instancias de Cliente y Evento
         Cliente cliente1 = new Cliente();
@@ -152,8 +144,8 @@ public class SistemaTaquillera implements Serializable {
     //--CRUD-cliente------------------------------------------------------------------------------------------
     public Cliente registrarCliente(Cliente cliente)throws ClienteException {
         Cliente nuevoCliente = null;
-        boolean clienteExiste = verificarClienteExiste(cliente.getId());
-        if (clienteExiste){
+        boolean clienteExiste = clienteExistente(cliente.getId());
+        if(clienteExiste) {
             throw new ClienteException("El cliente con id "+cliente.getId()+" ya está registrado");
         }else{
             nuevoCliente = new Cliente();
@@ -168,14 +160,6 @@ public class SistemaTaquillera implements Serializable {
 
     public void agregarCliente(Cliente nuevoCliente)throws ClienteException{
         getListaClientes().add(nuevoCliente);
-    }
-
-    public boolean verificarClienteExiste(String id)throws ClienteException{
-        if (clienteExistente(id)){
-            throw new ClienteException("El cliente con cédula "+id+" ya exite.");
-        }else{
-            return false;
-        }
     }
 
     public boolean clienteExistente(String id){
@@ -233,7 +217,7 @@ public class SistemaTaquillera implements Serializable {
         Evento nuevoEvento = null;
         boolean eventoExiste = verificarEventoExiste(evento.getCodigoEvento());
         if(eventoExiste){
-            throw new EventoException("El evento con código "+evento.getCodigoEvento()+" ya exites.");
+            throw new EventoException("El evento con código "+evento.getCodigoEvento()+" ya existe.");
 
         }else{
             nuevoEvento = new Evento();

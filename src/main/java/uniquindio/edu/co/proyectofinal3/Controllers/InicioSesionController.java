@@ -70,10 +70,13 @@ public class InicioSesionController {
         contrasenia = txtFieldPWReg.getText();
 
         Cliente cliente = new Cliente(nombre, id, correo, contrasenia);
-        sistemaTaquillera.registrarCliente(cliente);
-        if(sistemaTaquillera.verificarClienteExiste(id)) {
+        if(sistemaTaquillera.clienteExistente(id)) {
             Adicional.sendAlerta("ERROR", "Datos Incorrectos", "Un Usuario ya está registrado con el ID " + id);
         }
+        else{
+            Adicional.sendAlerta("Registro Completado", null, "El usuario ha sido registrado correctamente");
+        }
+        sistemaTaquillera.registrarCliente(cliente);
 
         txtFieldNombreReg.clear();
         txtFieldIDReg.clear();

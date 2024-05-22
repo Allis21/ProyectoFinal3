@@ -65,9 +65,8 @@ public class ClienteController {
 
     @FXML
     void cerrarSesion(ActionEvent event) {
-
     }
-    
+
     @FXML
     void cliclkedFinalizarCompra(ActionEvent event) {
     }
