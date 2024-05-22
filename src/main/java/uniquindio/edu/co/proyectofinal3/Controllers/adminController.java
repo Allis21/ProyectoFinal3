@@ -10,7 +10,16 @@ import javafx.scene.layout.AnchorPane;
 public class adminController {
 
     @FXML
+    private Button btnAbrirTaquilla;
+
+    @FXML
     private Button btnCerrarSesion;
+
+    @FXML
+    private Button btnPanelEventos;
+
+    @FXML
+    private Button btnPanelLocaciones;
 
     @FXML
     private TableColumn<?, ?> columnArtistaRegis;
@@ -78,6 +87,27 @@ public class adminController {
     @FXML
     void cerrarSesion(ActionEvent event) {
 
+    }
+
+    @FXML
+    void clickedPanelAbrirTaquilla(ActionEvent event) {
+        panelRegistroLocalizaciones.setVisible(false);
+        panelRegistroEvento.setVisible(false);
+        panelAperturaTaquilla.setVisible(true);
+    }
+
+    @FXML
+    void clickedPanelEventos(ActionEvent event) {
+        panelRegistroLocalizaciones.setVisible(false);
+        panelRegistroEvento.setVisible(true);
+        panelAperturaTaquilla.setVisible(false);
+    }
+
+    @FXML
+    void clickedPanelLocaciones(ActionEvent event) {
+        panelRegistroLocalizaciones.setVisible(true);
+        panelRegistroEvento.setVisible(false);
+        panelAperturaTaquilla.setVisible(false);
     }
 
 }

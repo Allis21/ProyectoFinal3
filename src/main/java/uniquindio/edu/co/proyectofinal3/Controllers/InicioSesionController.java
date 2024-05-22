@@ -47,7 +47,7 @@ public class InicioSesionController {
 
     @FXML
     void clickedIniciarSesion(ActionEvent event) {
-        // PRUEBA DE INICIO DE SESION ADMIN
+        Cliente cliente = sistemaTaquillera.obtenerCLiente(txtFieldIDInicio.getText());
         if(txtFieldIDInicio.getText().equals(sistemaTaquillera.getAdministrador().getIdAdmin()) && txtFieldPWInicio.getText().equals(sistemaTaquillera.getAdministrador().getConAdmin())) {
             try {
                 HelloApplication.showAdminView();
@@ -56,8 +56,19 @@ public class InicioSesionController {
             }
             ((btnIniciarSesion)).getScene().getWindow().hide();
         }
+        else if(sistemaTaquillera.clienteExistente(txtFieldIDInicio.getText()) && !txtFieldPWInicio.getText().isEmpty())
+        {
+            if(txtFieldPWInicio.getText().equals(cliente.getContrasenia())) {
+                try {
+                    HelloApplication.showClienteView();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                ((btnIniciarSesion)).getScene().getWindow().hide();
+            }
+            }
         else {
-            Adicional.sendAlerta("ERROR", "No eres Admin Manito", null);
+            Adicional.sendAlerta("ERROR", "Usuario No Registrado", "Los datos ingresados no están resgitrados en la plaforma");
         }
     }
 

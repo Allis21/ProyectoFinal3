@@ -42,7 +42,7 @@
                                         <Image url="@../../../../Media/Logo.png" />
                                     </image>
                                 </ImageView>
-                                <Label layoutX="41.0" layoutY="140.0" text="Administrador" textFill="WHITE">
+                                <Label layoutX="20.0" layoutY="140.0" text="ADMINISTRADOR" textFill="WHITE">
                                     <font>
                                         <Font name="Microsoft Yi Baiti" size="25.0" />
                                     </font>
@@ -71,14 +71,14 @@
                               <Image url="@../../../../Media/Evento.png" />
                            </image>
                         </ImageView>
-                        <Button layoutX="76.0" layoutY="225.0" mnemonicParsing="false" opacity="0.0" prefHeight="46.0" prefWidth="52.0" />
-                        <Button layoutX="75.0" layoutY="295.0" mnemonicParsing="false" opacity="0.0" prefHeight="44.0" prefWidth="55.0" />
+                        <Button fx:id="btnPanelLocaciones" layoutX="76.0" layoutY="222.0" mnemonicParsing="false" onAction="#clickedPanelLocaciones" opacity="0.0" prefHeight="53.0" prefWidth="49.0" />
+                        <Button fx:id="btnPanelEventos" layoutX="70.0" layoutY="290.0" mnemonicParsing="false" onAction="#clickedPanelEventos" opacity="0.0" prefHeight="51.0" prefWidth="60.0" />
                         <ImageView fitHeight="74.0" fitWidth="105.0" layoutX="50.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../Media/Apertura.png" />
                            </image>
                         </ImageView>
-                        <Button layoutX="81.0" layoutY="364.0" mnemonicParsing="false" opacity="0.0" prefHeight="50.0" prefWidth="42.0" />
+                        <Button fx:id="btnAbrirTaquilla" layoutX="81.0" layoutY="359.0" mnemonicParsing="false" onAction="#clickedPanelAbrirTaquilla" opacity="0.0" prefHeight="55.0" prefWidth="43.0" />
                             </children>
                         </AnchorPane>
                     </left>
