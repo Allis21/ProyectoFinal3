@@ -1,7 +1,83 @@
 package uniquindio.edu.co.proyectofinal3.Controllers;
-import uniquindio.edu.co.proyectofinal3.Modelo.AppController;
-import uniquindio.edu.co.proyectofinal3.Modelo.SistemaTaquillera;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 
 public class adminController {
-    SistemaTaquillera sistemaTaquillera = AppController.INSTANCE.getSistemaTaquillera();
+
+    @FXML
+    private Button btnCerrarSesion;
+
+    @FXML
+    private TableColumn<?, ?> columnArtistaRegis;
+
+    @FXML
+    private TableColumn<?, ?> columnBoletaBronceRegis;
+
+    @FXML
+    private TableColumn<?, ?> columnBoletaOroRegis;
+
+    @FXML
+    private TableColumn<?, ?> columnBoletaPlataRegis;
+
+    @FXML
+    private TableColumn<?, ?> columnCiudad;
+
+    @FXML
+    private TableColumn<?, ?> columnCodigoEventoRegis;
+
+    @FXML
+    private TableColumn<?, ?> columnDireccion;
+
+    @FXML
+    private TableColumn<?, ?> columnEstadoAper;
+
+    @FXML
+    private TableColumn<?, ?> columnFechaAper;
+
+    @FXML
+    private TableColumn<?, ?> columnFechaRegis;
+
+    @FXML
+    private TableColumn<?, ?> columnHoraAper;
+
+    @FXML
+    private TableColumn<?, ?> columnNombreEventoApert;
+
+    @FXML
+    private TableColumn<?, ?> columnNombreEventoRegis;
+
+    @FXML
+    private TableColumn<?, ?> columnPais;
+
+    @FXML
+    private TableColumn<?, ?> columnUbicacionRegis;
+
+    @FXML
+    private AnchorPane panelAperturaTaquilla;
+
+    @FXML
+    private AnchorPane panelRegistroEvento;
+
+    @FXML
+    private AnchorPane panelRegistroLocalizaciones;
+
+    @FXML
+    private TableView<?> tablaEventos;
+
+    @FXML
+    private TableView<?> tablaEventos1;
+
+    @FXML
+    private TableView<?> tablaFactura;
+
+    @FXML
+    void cerrarSesion(ActionEvent event) {
+
+    }
+
 }
