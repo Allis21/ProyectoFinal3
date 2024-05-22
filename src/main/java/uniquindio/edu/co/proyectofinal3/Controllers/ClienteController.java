@@ -19,6 +19,9 @@ public class ClienteController {
     private Button btnEventos;
 
     @FXML
+    private Button btnFinalizarCompra;
+
+    @FXML
     private TableColumn<?, ?> columnBoletasBronceFac;
 
     @FXML
@@ -63,6 +66,10 @@ public class ClienteController {
     @FXML
     void cerrarSesion(ActionEvent event) {
 
+    }
+    
+    @FXML
+    void cliclkedFinalizarCompra(ActionEvent event) {
     }
 
     @FXML

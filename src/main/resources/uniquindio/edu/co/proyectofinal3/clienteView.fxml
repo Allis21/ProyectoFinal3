@@ -81,7 +81,7 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff4f95;" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="panelEventos" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
+                                <AnchorPane fx:id="panelEventos" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
                                     <children>
                                         <TableView fx:id="tablaEventos" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0">
                                             <columns>
@@ -95,7 +95,7 @@
                                 </AnchorPane>
                                 <AnchorPane fx:id="panelFactura" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
                                     <children>
-                                        <TableView fx:id="tablaFactura" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0" visible="false">
+                                        <TableView fx:id="tablaFactura" layoutX="15.0" layoutY="45.0" prefHeight="423.0" prefWidth="850.0">
                                             <columns>
                                                 <TableColumn fx:id="columnNombreEventoFac" prefWidth="236.0" text="Nombre" />
                                                 <TableColumn fx:id="columnCodigoEventoFac" minWidth="0.0" prefWidth="286.0" text="Codigo Del Evento" />
@@ -105,43 +105,44 @@
                                     <TableColumn fx:id="columnValorFac" prefWidth="118.0" text="Valor " />
                                             </columns>
                                         </TableView>
+                              <ImageView fitHeight="58.0" fitWidth="80.0" layoutX="263.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Media/pse-logo.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="51.0" fitWidth="51.0" layoutX="81.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Media/Visa.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="35.0" fitWidth="86.0" layoutX="15.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Media/MasterCard.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="54.0" fitWidth="44.0" layoutX="145.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Media/Nequi.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="48.0" fitWidth="82.0" layoutX="192.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Media/Daviplata.png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="btnFinalizarCompra" layoutX="36.0" layoutY="295.0" mnemonicParsing="false" onAction="#cliclkedFinalizarCompra" opacity="0.0" prefHeight="19.0" prefWidth="39.0" text="Finalizar Compra" />
+                              <Label layoutX="15.0" layoutY="14.0" prefHeight="24.0" prefWidth="248.0" text="Información De Tú Compra" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="752.0" layoutY="484.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #ff4f95;" text="Finalizar Compra" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
                                     </children>
                                 </AnchorPane>
-                        <Circle fill="WHITE" layoutX="122.0" layoutY="306.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
-                        <Circle fill="WHITE" layoutX="122.0" layoutY="367.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
-                        <ImageView fitHeight="58.0" fitWidth="137.0" layoutX="150.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../../../../../Desktop/Imagenes%20proyecto/pse-logo.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="51.0" fitWidth="91.0" layoutX="150.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../../../../../Desktop/Imagenes%20proyecto/Visa.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="77.0" fitWidth="102.0" layoutX="150.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../../../../../Desktop/Imagenes%20proyecto/MasterCard.png" />
-                           </image>
-                        </ImageView>
-                        <Circle fill="WHITE" layoutX="122.0" layoutY="434.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
-                        <Circle fill="WHITE" layoutX="343.0" layoutY="342.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
-                        <Circle fill="WHITE" layoutX="343.0" layoutY="403.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
-                        <ImageView fitHeight="54.0" fitWidth="39.0" layoutX="373.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../../../../../Desktop/Imagenes%20proyecto/Nequi.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="102.0" layoutX="361.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../../../../../Desktop/Imagenes%20proyecto/Daviplata.png" />
-                           </image>
-                        </ImageView>
-                        <Button fx:id="btnPSE" layoutX="102.0" layoutY="293.0" mnemonicParsing="false" onAction="#pagoPSE" opacity="0.0" prefHeight="19.0" prefWidth="39.0" text="PSE" />
-                        <Button fx:id="btnVISA" layoutX="102.0" layoutY="354.0" mnemonicParsing="false" onAction="#pagoVISA" opacity="0.0" prefHeight="19.0" prefWidth="39.0" text="VISA" />
-                        <Button fx:id="btnMasterdCard" layoutX="102.0" layoutY="421.0" mnemonicParsing="false" onAction="#pagoMasterCard" opacity="0.0" prefHeight="19.0" prefWidth="39.0" text="MasterCard" />
-                        <Button fx:id="btnNequi" layoutX="323.0" layoutY="329.0" mnemonicParsing="false" onAction="#pagoNequi" opacity="0.0" prefHeight="19.0" prefWidth="39.0" text="Nequi" />
-                        <Button fx:id="btnDaviplata" layoutX="323.0" layoutY="390.0" mnemonicParsing="false" onAction="#pagoDaviplata" opacity="0.0" prefHeight="19.0" prefWidth="39.0" text="Daviplata" />
                             </children>
                         </AnchorPane>
                     </center>
