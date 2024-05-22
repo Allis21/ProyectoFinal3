@@ -49,9 +49,18 @@ public class SistemaTaquillera implements Serializable {
     public void setTaquillaAbierta(boolean taquillaAbierta) {
         this.taquillaAbierta = taquillaAbierta;
     }
-    public static void main(String[] args) {
-        // Crear instancias de Cliente, Evento y SistemaTaquillera
-        /*Cliente cliente1 = new Cliente();
+
+    public static void main(String[] args) throws InterruptedException {
+        SistemaTaquillera sistemaTaquillera = new SistemaTaquillera();
+        sistemaTaquillera.setTaquillaAbierta(true); // Abre la taquilla
+
+        // Iniciar la compra de boletos
+        sistemaTaquillera.iniciarCompraBoletos();
+
+    }
+    public void iniciarCompraBoletos() {
+        // Crear instancias de Cliente y Evento
+        Cliente cliente1 = new Cliente();
         cliente1.setNombre("Cliente 1");
 
         Cliente cliente2 = new Cliente();
@@ -65,36 +74,33 @@ public class SistemaTaquillera implements Serializable {
 
         Evento evento1 = new Evento();
         evento1.setNombreEvento("Evento 1");
-        evento1.setBoletosDisponibles(3); // 10 boletos disponibles
-
-        SistemaTaquillera sistemaTaquillera = new SistemaTaquillera();
-        sistemaTaquillera.setTaquillaAbierta(true); // Abre la taquilla
+        evento1.setBoletosDisponibles(2); // 10 boletos disponibles
 
         // Crear hilos para cada cliente intentando comprar boletos
         Thread hilo1 = new Thread(() -> {
             try {
-                sistemaTaquillera.comprarBoletos(cliente1, evento1, 2);
+                comprarBoletos(cliente1, evento1, 2);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         });
         Thread hilo2 = new Thread(() -> {
             try {
-                sistemaTaquillera.comprarBoletos(cliente2, evento1, 2);
+                comprarBoletos(cliente2, evento1, 2);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         });
         Thread hilo3 = new Thread(() -> {
             try {
-                sistemaTaquillera.comprarBoletos(cliente3, evento1, 2);
+                comprarBoletos(cliente3, evento1, 2);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         });
         Thread hilo4 = new Thread(() -> {
             try {
-                sistemaTaquillera.comprarBoletos(cliente4, evento1, 2);
+                comprarBoletos(cliente4, evento1, 2);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -104,19 +110,21 @@ public class SistemaTaquillera implements Serializable {
         hilo1.start();
         hilo2.start();
         hilo3.start();
-        hilo4.start();*/
+        hilo4.start();
     }
     //Utilice hilos para que solo 3 personas puedan acceder simultáneamente a comprar sus
     //boletas mientras los demás siguen en espera.
     public void comprarBoletos(Cliente cliente, Evento evento, int cantidadBoletos) throws InterruptedException {
             semaforo.acquire();
             if (taquillaAbierta) {
-                if (evento.getBoletosDisponibles() >= cantidadBoletos) {
-                    Thread.sleep(6000);
-                    evento.setBoletosDisponibles(evento.getBoletosDisponibles() - cantidadBoletos);
-                    System.out.println("Compra exitosa de " + cantidadBoletos + " boletos para el evento " + evento.getNombreEvento() + " por parte del cliente " + cliente.getNombre());
-                } else {
-                    System.out.println("No hay suficientes boletos disponibles para el evento " + evento.getNombreEvento());
+                synchronized(this) {
+                    if (evento.getBoletosDisponibles() >= cantidadBoletos) {
+                        Thread.sleep(4000);
+                        evento.setBoletosDisponibles(evento.getBoletosDisponibles() - cantidadBoletos);
+                        System.out.println("Compra exitosa de " + cantidadBoletos + " boletos para el evento " + evento.getNombreEvento() + " por parte del cliente " + cliente.getNombre());
+                    } else {
+                        System.out.println("No hay suficientes boletos disponibles para el evento " + evento.getNombreEvento());
+                    }
                 }
             } else {
                 System.out.println("La taquilla está cerrada");
