@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -81,7 +82,7 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff4f95;" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="panelEventos" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
+                                <AnchorPane fx:id="panelEventos" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
                                     <children>
                                         <TableView fx:id="tablaEventos" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0">
                                             <columns>
@@ -91,6 +92,16 @@
                                                 <TableColumn fx:id="columnEstadoMateria" minWidth="1.0" prefWidth="235.0" text="Fecha" />
                                             </columns>
                                         </TableView>
+                              <TextField fx:id="txtFieldCantBoletasOro" layoutX="453.0" layoutY="270.0" prefHeight="26.0" prefWidth="198.0" promptText="Cantidad de bolestas deseadas" />
+                              <Button fx:id="btnAnadirCarrito" layoutX="371.0" layoutY="468.0" mnemonicParsing="false" onAction="#ClickedAnadirCarrito" prefHeight="30.0" prefWidth="137.0" text="Añadir al carrito" />
+                              <Label layoutX="328.0" layoutY="274.0" prefHeight="18.0" prefWidth="100.0" text="         ORO:" textAlignment="CENTER" />
+                              <TextField fx:id="txtFieldCantBoletasPlata" layoutX="453.0" layoutY="334.0" prefHeight="26.0" prefWidth="198.0" promptText="Cantidad de bolestas deseadas" />
+                              <Label layoutX="321.0" layoutY="338.0" prefHeight="18.0" prefWidth="100.0" text="         PLATA:" textAlignment="CENTER" />
+                              <Label layoutX="328.0" layoutY="417.0" prefHeight="18.0" prefWidth="100.0" text="       COBRE:" textAlignment="CENTER" />
+                              <TextField fx:id="txtFieldCantBoletasCobre" layoutX="453.0" layoutY="413.0" prefHeight="26.0" prefWidth="198.0" promptText="Cantidad de bolestas deseadas" />
+                              <Circle fill="#eac102" layoutX="321.0" layoutY="283.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#d1ebf7" layoutX="321.0" layoutY="347.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#80371e" layoutX="321.0" layoutY="426.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
                                     </children>
                                 </AnchorPane>
                                 <AnchorPane fx:id="panelFactura" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
