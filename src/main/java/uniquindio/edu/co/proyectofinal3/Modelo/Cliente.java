@@ -13,7 +13,6 @@ public class Cliente implements Serializable {
     private String nombre, id, correo, contrasenia;
 
 
-
     public Cliente(){ super(); }
 
    public Cliente(String nombre, String id, String correo, String contrasenia) {

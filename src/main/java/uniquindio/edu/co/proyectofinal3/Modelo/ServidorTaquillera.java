@@ -6,7 +6,6 @@ import java.util.concurrent.*;
 
 public class ServidorTaquillera {
 
-    public class Server {
         // Define el puerto en el que el servidor escuchará
         private static final int PORT = 8090;
         // Crea un ExecutorService con un pool de hilos de tamaño fijo de 3
@@ -47,5 +46,4 @@ public class ServidorTaquillera {
                 }
             }
         }
-    }
 }
