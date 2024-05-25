@@ -52,78 +52,35 @@ public class SistemaTaquillera implements Serializable {
         this.taquillaAbierta = taquillaAbierta;
     }
 
-    public void iniciarCompraBoletos() {
-        // Crear instancias de Cliente y Evento
-        Cliente cliente1 = new Cliente();
-        cliente1.setNombre("Cliente 1");
-
-        Cliente cliente2 = new Cliente();
-        cliente2.setNombre("Cliente 2");
-
-        Cliente cliente3 = new Cliente();
-        cliente3.setNombre("Cliente 3");
-
-        Cliente cliente4 = new Cliente();
-        cliente4.setNombre("Cliente 4");
-
-        Evento evento1 = new Evento();
-        evento1.setNombreEvento("Evento 1");
-        evento1.setBoletosDisponibles(2); // 10 boletos disponibles
-
-        // Crear hilos para cada cliente intentando comprar boletos
-        Thread hilo1 = new Thread(() -> {
-            try {
-                comprarBoletos(cliente1, evento1, 2);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        Thread hilo2 = new Thread(() -> {
-            try {
-                comprarBoletos(cliente2, evento1, 2);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        Thread hilo3 = new Thread(() -> {
-            try {
-                comprarBoletos(cliente3, evento1, 2);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        Thread hilo4 = new Thread(() -> {
-            try {
-                comprarBoletos(cliente4, evento1, 2);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
-
-        // Iniciar los hilos
-        hilo1.start();
-        hilo2.start();
-        hilo3.start();
-        hilo4.start();
+    //Visualización de disponibilidad de boletas para cada evento.
+    public String mostrarDisponibilidadBoletos() {
+        StringBuilder disponibilidad = new StringBuilder();
+        for (Evento evento : listaEventos) {
+            disponibilidad.append("Evento: ").append(evento.getNombreEvento())
+                    .append(", Boletos disponibles: ").append(evento.getBoletosDisponibles()).append("\n");
+        }
+        return disponibilidad.toString();
     }
     //Utilice hilos para que solo 3 personas puedan acceder simultáneamente a comprar sus
     //boletas mientras los demás siguen en espera.
-    public void comprarBoletos(Cliente cliente, Evento evento, int cantidadBoletos) throws InterruptedException {
-            semaforo.acquire();
-            if (taquillaAbierta) {
-                synchronized(this) {
-                    if (evento.getBoletosDisponibles() >= cantidadBoletos) {
-                        Thread.sleep(4000);
-                        evento.setBoletosDisponibles(evento.getBoletosDisponibles() - cantidadBoletos);
-                        System.out.println("Compra exitosa de " + cantidadBoletos + " boletos para el evento " + evento.getNombreEvento() + " por parte del cliente " + cliente.getNombre());
-                    } else {
-                        System.out.println("No hay suficientes boletos disponibles para el evento " + evento.getNombreEvento());
-                    }
+    public String comprarBoletos(Cliente cliente, Evento evento, int cantidadBoletos) throws InterruptedException {
+        semaforo.acquire();
+        StringBuilder resultado = new StringBuilder();
+        if (taquillaAbierta) {
+            synchronized(this) {
+                if (evento.getBoletosDisponibles() >= cantidadBoletos) {
+                    Thread.sleep(4000);
+                    evento.setBoletosDisponibles(evento.getBoletosDisponibles() - cantidadBoletos);
+                    resultado.append("Compra exitosa de ").append(cantidadBoletos).append(" boletos para el evento ").append(evento.getNombreEvento()).append(" por parte del cliente ").append(cliente.getNombre());
+                } else {
+                    resultado.append("No hay suficientes boletos disponibles para el evento ").append(evento.getNombreEvento());
                 }
-            } else {
-                System.out.println("La taquilla está cerrada");
             }
-            semaforo.release();
+        } else {
+            resultado.append("La taquilla está cerrada");
+        }
+        semaforo.release();
+        return resultado.toString();
     }
 
     // Apertura de la taquilla virtual a una hora específica
@@ -135,7 +92,7 @@ public class SistemaTaquillera implements Serializable {
         scheduler.schedule(() -> taquillaAbierta = true, delayApertura, TimeUnit.MINUTES);
     }
 
-    // El cierre de taquilla debe ser una hora antes del evento
+    // Cierre de la taquilla una hora antes del evento
     public void cerrarTaquilla(LocalTime horaEvento) {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         long delayCierre = LocalTime.now().until(horaEvento.minusHours(1), ChronoUnit.MINUTES);

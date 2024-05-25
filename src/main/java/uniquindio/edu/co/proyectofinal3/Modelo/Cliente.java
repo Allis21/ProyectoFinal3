@@ -2,7 +2,9 @@ package uniquindio.edu.co.proyectofinal3.Modelo;
 
 import uniquindio.edu.co.proyectofinal3.Exepciones.ClienteException;
 
-import java.io.Serializable;
+import java.io.*;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -36,6 +38,46 @@ public class Cliente implements Serializable {
     public String getContrasenia() { return contrasenia; }
 
     public void setContrasenia(String contrasenia) { this.contrasenia = contrasenia; }
+    public void conectarConServidor() {
+        try {
+            Socket socket = new Socket("localhost", 8090);
+
+            // Crea un PrintWriter que enviará mensajes al servidor a través del OutputStream del Socket
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+            // Crea un BufferedReader que leerá las respuestas del servidor a través del InputStream del Socket
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            // Envía un mensaje al servidor
+            out.println("Hola, servidor!");
+
+            // Lee la respuesta del servidor y la imprime
+            System.out.println("Respuesta del servidor: " + in.readLine());
+
+            // Cierra el Socket
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+   /* public void ejecutarSocketCliente(){
+        // TODO Auto-generated method stub
+        try{
+            Socket socket = new Socket("local host", 8090);
+            DataOutputStream data = new DataOutputStream(socket.getOutputStream());
+            data.writeUTF("Cliente conectado :)");
+            
+            data.close();
+            socket.close();
+        } catch (UnknownHostException e){
+            // TODO Auto-generated method stub
+            e.printStackTrace();
+        } catch (IOException e){
+            // TODO Auto-generated method stub
+            e.printStackTrace();
+        }
+
+    }*/
 
     //DEVUELVE UNA CADENA QUE CONTIENE INFORMACIÓN DEL CLIENTE
     @Override
