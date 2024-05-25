@@ -2,7 +2,11 @@ package uniquindio.edu.co.proyectofinal3.Modelo;
 
 import uniquindio.edu.co.proyectofinal3.Exepciones.ClienteException;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -36,6 +40,25 @@ public class Cliente implements Serializable {
     public String getContrasenia() { return contrasenia; }
 
     public void setContrasenia(String contrasenia) { this.contrasenia = contrasenia; }
+
+    public void ejecutarSocketCliente(){
+        // TODO Auto-generated method stub
+        try{
+            Socket socket = new Socket("local host", 8090);
+            DataOutputStream data = new DataOutputStream(socket.getOutputStream());
+            data.writeUTF("Cliente conectado :)");
+            
+            data.close();
+            socket.close();
+        } catch (UnknownHostException e){
+            // TODO Auto-generated method stub
+            e.printStackTrace();
+        } catch (IOException e){
+            // TODO Auto-generated method stub
+            e.printStackTrace();
+        }
+
+    }
 
     //DEVUELVE UNA CADENA QUE CONTIENE INFORMACIÓN DEL CLIENTE
     @Override
