@@ -2,6 +2,7 @@ package uniquindio.edu.co.proyectofinal3.Modelo;
 
 import uniquindio.edu.co.proyectofinal3.Exepciones.ClienteException;
 import uniquindio.edu.co.proyectofinal3.Exepciones.EventoException;
+import uniquindio.edu.co.proyectofinal3.Exepciones.LocalidadException;
 
 import java.io.Serializable;
 import java.time.LocalTime;
@@ -19,9 +20,10 @@ public class SistemaTaquillera implements Serializable {
     private Semaphore semaforo = new Semaphore(3); //Solo 3 clientes pueden comprar boletos al mismo tiempo
     private ArrayList<Cliente> listaClientes = new ArrayList<>();
     private ArrayList<Evento>listaEventos = new ArrayList<>();
+    private ArrayList<Localidad>listaLocalidades= new ArrayList<>();
     public ArrayList<Cliente> getListaClientes(){return listaClientes;}
     public ArrayList<Evento> getListaEventos(){return listaEventos;}
-
+    public ArrayList<Localidad>getListaLocalidades(){return listaLocalidades;}
     public SistemaTaquillera() {
         this.administrador = new Administrador("777", "abc");
         Cliente cliente = new Cliente("Juanito Alimaña", "111", "PERROHPTA", "mera");
@@ -244,7 +246,7 @@ public class SistemaTaquillera implements Serializable {
     }
 
     public boolean verificarEventoExiste(String codigoEvento) throws EventoException{
-        if(verificarEventoExiste(codigoEvento)){
+        if(eventoExistente(codigoEvento)){
             throw new EventoException("El evento con código: "+codigoEvento+" ya existe.");
         }else{
             return false;
@@ -300,4 +302,76 @@ public class SistemaTaquillera implements Serializable {
         }
         return flagExiste;
     }
+
+    //--CRUD-Localidades----------------------------------------------------------------------------------------------
+
+    public Localidad registrarLocalidad(Localidad localidad) throws LocalidadException {
+        Localidad nuevalocalidad= null;
+        boolean localidadExistente = LocalidadExistente(localidad.getDireccion());
+        if(localidadExistente){
+            throw new LocalidadException("La locacion con la direccion "+localidad.getDireccion()+" ya existe");
+
+        }else {
+            nuevalocalidad = new Localidad();
+            nuevalocalidad.setPais(localidad.getPais());
+            nuevalocalidad.setPais(localidad.getPais());
+            nuevalocalidad.setDireccion(localidad.getDireccion());
+
+            getListaLocalidades().add(nuevalocalidad);
+        }
+        return nuevalocalidad;
+
+    }
+    public void agregarLocalidad(Localidad nuevaLocalidad){
+        getListaLocalidades().add(nuevaLocalidad);
+    }
+
+    private boolean LocalidadExistente(String direccion) {
+        boolean localidadEncontrada = false;
+        for(Localidad localidad: listaLocalidades){
+            if(localidad.getDireccion().equalsIgnoreCase(direccion)){
+                localidadEncontrada=true;
+                break;
+            }
+        }
+        return localidadEncontrada;
+    }
+
+    public boolean actualizarLocalidad(Localidad localidad) throws EventoException, LocalidadException {
+        Localidad nuevaLocalidad = obtenerLocalidad(localidad.getDireccion());
+        if(nuevaLocalidad==null){
+            throw  new LocalidadException("El evento a actulizar no existe");
+        }else {
+            nuevaLocalidad.setPais(localidad.getPais());
+            nuevaLocalidad.setCiudad(localidad.getCiudad());
+            nuevaLocalidad.setDireccion(localidad.getDireccion());
+            return true;
+        }
+    }
+
+    private Localidad obtenerLocalidad(String direccion) {
+        Localidad localidadEncontrada = null;
+        for (Localidad localidad: listaLocalidades){
+            if(localidad.getDireccion().equalsIgnoreCase(direccion)){
+                localidadEncontrada = localidad;
+            }
+        }
+        return localidadEncontrada;
+    }
+
+    public  boolean eliminarLocalidad (String direccion) throws LocalidadException {
+        Localidad localidad= null;
+        boolean flagExiste= false;
+        localidad = obtenerLocalidad(direccion);
+        if (localidad == null){
+            throw  new LocalidadException("No existe la localidad");
+
+        }else {
+            getListaLocalidades().remove(localidad);
+            flagExiste= true;
+        }
+        return flagExiste;
+    }
+
+
 }
