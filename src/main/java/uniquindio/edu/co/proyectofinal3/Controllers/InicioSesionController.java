@@ -21,6 +21,7 @@ import java.io.IOException;
 public class InicioSesionController {
     SistemaTaquillera sistemaTaquillera = AppController.INSTANCE.getSistemaTaquillera();
 
+    private Propiedades propiedades = Propiedades.getInstance();
     @FXML
     private Button btnIniciarSesion;
 
@@ -48,17 +49,15 @@ public class InicioSesionController {
     @FXML
     void clickedIniciarSesion(ActionEvent event) {
         Cliente cliente = sistemaTaquillera.obtenerCLiente(txtFieldIDInicio.getText());
-        if(txtFieldIDInicio.getText().equals(sistemaTaquillera.getAdministrador().getIdAdmin()) && txtFieldPWInicio.getText().equals(sistemaTaquillera.getAdministrador().getConAdmin())) {
+        if (txtFieldIDInicio.getText().equals(sistemaTaquillera.getAdministrador().getIdAdmin()) && txtFieldPWInicio.getText().equals(sistemaTaquillera.getAdministrador().getConAdmin())) {
             try {
                 HelloApplication.showAdminView();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             ((btnIniciarSesion)).getScene().getWindow().hide();
-        }
-        else if(sistemaTaquillera.clienteExistente(txtFieldIDInicio.getText()) && !txtFieldPWInicio.getText().isEmpty())
-        {
-            if(txtFieldPWInicio.getText().equals(cliente.getContrasenia())) {
+        } else if (sistemaTaquillera.clienteExistente(txtFieldIDInicio.getText()) && !txtFieldPWInicio.getText().isEmpty()) {
+            if (txtFieldPWInicio.getText().equals(cliente.getContrasenia())) {
                 try {
                     HelloApplication.showClienteView();
                 } catch (IOException e) {
@@ -66,8 +65,7 @@ public class InicioSesionController {
                 }
                 ((btnIniciarSesion)).getScene().getWindow().hide();
             }
-            }
-        else {
+        } else {
             Adicional.sendAlerta("ERROR", "Usuario No Registrado", "Los datos ingresados no están resgitrados en la plaforma");
         }
     }
@@ -81,10 +79,9 @@ public class InicioSesionController {
         contrasenia = txtFieldPWReg.getText();
 
         Cliente cliente = new Cliente(nombre, id, correo, contrasenia);
-        if(sistemaTaquillera.clienteExistente(id)) {
+        if (sistemaTaquillera.clienteExistente(id)) {
             Adicional.sendAlerta("ERROR", "Datos Incorrectos", "Un Usuario ya está registrado con el ID " + id);
-        }
-        else{
+        } else {
             Adicional.sendAlerta("Registro Completado", null, "El usuario ha sido registrado correctamente");
         }
         sistemaTaquillera.registrarCliente(cliente);
@@ -93,5 +90,13 @@ public class InicioSesionController {
         txtFieldIDReg.clear();
         txtFieldEmailReg.clear();
         txtFieldPWReg.clear();
+    }
+
+    public void cambiarIdioma() {
+        if (propiedades.getIdioma().equals("es")) {
+            propiedades.escribirIdioma("en");
+        } else {
+            propiedades.escribirIdioma("es");
+        }
     }
 }
