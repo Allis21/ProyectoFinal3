@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -53,8 +54,8 @@
                                     </font>
                                 </Label>
                                 <Line endX="73.0" layoutX="113.0" layoutY="205.0" startX="-100.0" stroke="WHITE" />
-                                <Circle fill="WHITE" layoutX="169.0" layoutY="247.0" radius="6.0" stroke="#00a6dd" strokeType="INSIDE" />
-                                <Circle fill="#ff4f95" layoutX="169.0" layoutY="311.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
+                                <Circle fill="#ff4f95" layoutX="169.0" layoutY="247.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
+                                <Circle fill="#ff4f95" layoutX="169.0" layoutY="317.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
                         <ImageView fitHeight="206.0" fitWidth="201.0" layoutX="-1.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../Media/Vector2.png" />
@@ -72,7 +73,7 @@
                            </image>
                         </ImageView>
                         <Button fx:id="btnPanelLocaciones" layoutX="76.0" layoutY="222.0" mnemonicParsing="false" onAction="#clickedPanelLocaciones" opacity="0.0" prefHeight="53.0" prefWidth="49.0" />
-                        <Button fx:id="btnPanelEventos" layoutX="70.0" layoutY="290.0" mnemonicParsing="false" onAction="#clickedPanelEventos" opacity="0.0" prefHeight="51.0" prefWidth="60.0" />
+                        <Button fx:id="btnPanelEventos" layoutX="71.0" layoutY="292.0" mnemonicParsing="false" onAction="#clickedPanelEventos" opacity="0.0" prefHeight="51.0" prefWidth="58.0" />
                         <ImageView fitHeight="74.0" fitWidth="105.0" layoutX="50.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../Media/Apertura.png" />
@@ -85,20 +86,51 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff4f95;" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="panelRegistroLocalizaciones" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
+                                <AnchorPane fx:id="panelRegistroLocalizaciones" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
                                     <children>
-                                        <TableView fx:id="tablaEventos" layoutX="15.0" layoutY="70.0" prefHeight="221.0" prefWidth="850.0">
+                                        <TableView fx:id="tablaEventos" layoutX="15.0" layoutY="49.0" prefHeight="247.0" prefWidth="850.0">
                                             <columns>
                                                 <TableColumn fx:id="columnPais" prefWidth="228.80002975463867" text="País" />
                                                 <TableColumn fx:id="columnCiudad" minWidth="0.0" prefWidth="217.59999084472656" text="Ciudad" />
                                                 <TableColumn fx:id="columnDireccion" minWidth="0.0" prefWidth="405.59991455078125" text="Dirección" />
                                             </columns>
                                         </TableView>
-                              <Label layoutX="32.0" layoutY="25.0" prefHeight="24.0" prefWidth="248.0" text="Registro de Localizaciones" textAlignment="CENTER">
+                              <Label layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="248.0" text="Registro de Localizaciones" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft YaHei UI Bold" size="18.0" />
                                  </font>
                               </Label>
+                              <Label layoutX="244.0" layoutY="321.0" prefHeight="24.0" prefWidth="37.0" text="País: " textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPaisLocalidad" alignment="CENTER" layoutX="155.0" layoutY="345.0" prefHeight="25.0" prefWidth="215.0" promptText="Ingrese el País" />
+                              <Label layoutX="234.0" layoutY="385.0" prefHeight="24.0" prefWidth="57.0" text="Ciudad:" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="225.0" layoutY="449.0" prefHeight="24.0" prefWidth="76.0" text="Dirección:" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtCiudadLocalidad" alignment="CENTER" layoutX="155.0" layoutY="409.0" prefHeight="25.0" prefWidth="215.0" promptText="Ingrese la Ciudad" />
+                              <TextField fx:id="txtDireccionLocalidad" alignment="CENTER" layoutX="155.0" layoutY="473.0" prefHeight="25.0" prefWidth="215.0" promptText="Ingrese la Dirección" />
+                              <Line endX="-100.0" endY="199.0" layoutX="540.0" layoutY="324.0" startX="-100.0" startY="-11.0" />
+                              <Button fx:id="btnRegistrarLocalidad" layoutX="508.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickedRegistrarLocalidad" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #5ff24e;" text="Registrar" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="btnActualizarLocalidad" layoutX="508.0" layoutY="400.0" mnemonicParsing="false" onAction="#clickedActualizarLocalidad" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #3988d7;" text="Actualizar" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="btnEliminarLocalidad" layoutX="508.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickedEliminarLocalidad" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #f83434;" text="Eliminar" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
                                     </children>
                                 </AnchorPane>
                                 <AnchorPane fx:id="panelRegistroEvento" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">

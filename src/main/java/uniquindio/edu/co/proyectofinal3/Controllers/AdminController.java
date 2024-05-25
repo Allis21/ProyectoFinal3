@@ -95,6 +95,19 @@ public class AdminController {
     }
 
     @FXML
+    void clickedActualizarLocalidad(ActionEvent event) {
+        
+    }
+
+    @FXML
+    void clickedEliminarLocalidad(ActionEvent event) {
+    }
+
+    @FXML
+    void clickedRegistrarLocalidad(ActionEvent event) {
+    }
+
+    @FXML
     void clickedPanelAbrirTaquilla(ActionEvent event) {
         panelRegistroLocalizaciones.setVisible(false);
         panelRegistroEvento.setVisible(false);
@@ -114,5 +127,4 @@ public class AdminController {
         panelRegistroEvento.setVisible(false);
         panelAperturaTaquilla.setVisible(false);
     }
-
 }
