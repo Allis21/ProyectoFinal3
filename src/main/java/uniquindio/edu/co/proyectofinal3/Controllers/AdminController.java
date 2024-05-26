@@ -13,7 +13,6 @@ import uniquindio.edu.co.proyectofinal3.HelloApplication;
 import uniquindio.edu.co.proyectofinal3.Modelo.AppController;
 import uniquindio.edu.co.proyectofinal3.Modelo.Localidad;
 import uniquindio.edu.co.proyectofinal3.Modelo.SistemaTaquillera;
-
 import java.io.IOException;
 
 public class AdminController {
@@ -26,13 +25,31 @@ public class AdminController {
     private Button btnAbrirTaquilla;
 
     @FXML
+    private Button btnActualizarEvento;
+
+    @FXML
+    private Button btnActualizarLocalidad;
+
+    @FXML
     private Button btnCerrarSesion;
+
+    @FXML
+    private Button btnEliminarEvento;
+
+    @FXML
+    private Button btnEliminarLocalidad;
 
     @FXML
     private Button btnPanelEventos;
 
     @FXML
     private Button btnPanelLocaciones;
+
+    @FXML
+    private Button btnRegistrarEvento;
+
+    @FXML
+    private Button btnRegistrarLocalidad;
 
     @FXML
     private TableColumn<?, ?> columnArtistaRegis;
@@ -68,6 +85,9 @@ public class AdminController {
     private TableColumn<?, ?> columnHoraAper;
 
     @FXML
+    private TableColumn<?, ?> columnLocalidadRegis;
+
+    @FXML
     private TableColumn<?, ?> columnNombreEventoApert;
 
     @FXML
@@ -75,9 +95,6 @@ public class AdminController {
 
     @FXML
     private TableColumn<Localidad, String> columnPais;
-
-    @FXML
-    private TableColumn<?, ?> columnUbicacionRegis;
 
     @FXML
     private ComboBox<Localidad> comboBoxLocalidades;
@@ -92,19 +109,33 @@ public class AdminController {
     private AnchorPane panelRegistroLocalizaciones;
 
     @FXML
-    private TableView<Localidad> tablaEventos;
+    private DatePicker seleccionarFechaEvento;
+    @FXML
+    private TableView<Localidad> tablaLocalidades;
 
     @FXML
     private TableView<?> tablaEventos1;
 
     @FXML
-    private TableView<?> tablaFactura;
+    private TableView<?> tablaRegistroEvento;
+
+    @FXML
+    private TextField txtArtistaEvento;
+
+    @FXML
+    private TextField txtCapacidadMaxEvento;
 
     @FXML
     private TextField txtCiudadLocalidad;
 
     @FXML
+    private TextField txtCodigoEvento;
+
+    @FXML
     private TextField txtDireccionLocalidad;
+
+    @FXML
+    private TextField txtNombreEvento;
 
     @FXML
     private TextField txtPaisLocalidad;
@@ -113,6 +144,11 @@ public class AdminController {
     void cerrarSesion(ActionEvent event) throws IOException {
         HelloApplication.showInicioView();
         ((btnCerrarSesion)).getScene().getWindow().hide();
+    }
+
+    @FXML
+    void clickedActualizarEvento(ActionEvent event) {
+
     }
 
     @FXML
@@ -150,6 +186,11 @@ public class AdminController {
     }
 
     @FXML
+    void clickedEliminarEvento(ActionEvent event) {
+
+    }
+
+    @FXML
     void clickedEliminarLocalidad(ActionEvent event) throws LocalidadException {
         String direccion = txtDireccionLocalidad.getText();
 
@@ -171,6 +212,11 @@ public class AdminController {
         txtPaisLocalidad.clear();
         txtCiudadLocalidad.clear();
         txtDireccionLocalidad.clear();
+
+    }
+
+    @FXML
+    void clickedRegistrarEvento(ActionEvent event) {
 
     }
 
@@ -226,6 +272,6 @@ public class AdminController {
         columnCiudad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCiudad()));
         columnDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDireccion()));
 
-        tablaEventos.setItems(listaLocalidades);
+        tablaLocalidades.setItems(listaLocalidades);
     }
 }
