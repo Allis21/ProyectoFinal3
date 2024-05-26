@@ -7,7 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
-public class adminController {
+public class AdminController {
 
     @FXML
     private Button btnAbrirTaquilla;

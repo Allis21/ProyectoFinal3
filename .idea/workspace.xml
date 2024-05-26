@@ -35,6 +35,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Cliente_Ser.executor": "Run",
     "Application.HelloApplication.executor": "Run",
     "Application.ServidorTaquillera.executor": "Run",
     "Application.SistemaTaquillera.executor": "Run",
