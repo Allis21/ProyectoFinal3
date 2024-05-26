@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -87,9 +88,9 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff4f95;" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="panelRegistroLocalizaciones" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
+                                <AnchorPane fx:id="panelRegistroLocalizaciones" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
                                     <children>
-                                        <TableView fx:id="tablaEventos" layoutX="15.0" layoutY="49.0" prefHeight="247.0" prefWidth="850.0">
+                                        <TableView fx:id="tablaLocalidades" layoutX="15.0" layoutY="49.0" prefHeight="247.0" prefWidth="850.0">
                                             <columns>
                                                 <TableColumn fx:id="columnPais" prefWidth="228.80002975463867" text="País" />
                                                 <TableColumn fx:id="columnCiudad" minWidth="0.0" prefWidth="217.59999084472656" text="Ciudad" />
@@ -134,14 +135,14 @@
                                  </font></Button>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="panelRegistroEvento" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
+                                <AnchorPane fx:id="panelRegistroEvento" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
                                     <children>
-                                        <TableView fx:id="tablaFactura" layoutX="16.0" layoutY="49.0" prefHeight="240.0" prefWidth="849.0">
+                                        <TableView fx:id="tablaRegistroEvento" layoutX="16.0" layoutY="49.0" prefHeight="240.0" prefWidth="849.0">
                                             <columns>
                                                 <TableColumn fx:id="columnNombreEventoRegis" prefWidth="140.80002975463867" text="Nombre Del Evento" />
                                                 <TableColumn fx:id="columnCodigoEventoRegis" minWidth="0.0" prefWidth="128.80006408691406" text="Codigo Del Evento" />
                                     <TableColumn fx:id="columnArtistaRegis" prefWidth="133.0" text="Artista" />
-                                    <TableColumn fx:id="columnUbicacionRegis" prefWidth="139.0" text="Ubicación" />
+                                    <TableColumn fx:id="columnLocalidadRegis" prefWidth="139.0" text="Localidad" />
                                     <TableColumn fx:id="columnFechaRegis" prefWidth="129.0" text="Fecha" />
                                     <TableColumn fx:id="columnBoletaOroRegis" minWidth="9.60003662109375" prefWidth="60.0" text="Oro" />
                                     <TableColumn fx:id="columnBoletaPlataRegis" minWidth="0.0" prefWidth="58.0" text="Plata" />
@@ -153,7 +154,57 @@
                                     <Font name="Microsoft YaHei UI Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="comboBoxLocalidades" layoutX="322.0" layoutY="346.0" prefWidth="150.0" />
+                              <ComboBox fx:id="comboBoxLocalidades" layoutX="396.0" layoutY="339.0" prefWidth="150.0" />
+                              <DatePicker fx:id="seleccionarFechaEvento" layoutX="384.0" layoutY="415.0" promptText="Seleccione La Fecha" />
+                              <Label layoutX="159.0" layoutY="313.0" prefHeight="24.0" prefWidth="67.0" text="Nombre:" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnRegistrarEvento" layoutX="656.0" layoutY="337.0" mnemonicParsing="false" onAction="#clickedRegistrarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #5ff24e;" text="Registrar" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnActualizarEvento" layoutX="656.0" layoutY="394.0" mnemonicParsing="false" onAction="#clickedActualizarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #3988d7;" text="Actualizar" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnEliminarEvento" layoutX="656.0" layoutY="450.0" mnemonicParsing="false" onAction="#clickedEliminarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #f83434;" text="Eliminar" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="txtNombreEvento" alignment="CENTER" layoutX="103.0" layoutY="337.0" prefHeight="25.0" prefWidth="180.0" promptText="Nombre Del Evento" />
+                              <Label layoutX="164.0" layoutY="463.0" prefHeight="24.0" prefWidth="57.0" text="Código:" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="167.0" layoutY="389.0" prefHeight="24.0" prefWidth="51.0" text="Artista:" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtArtistaEvento" alignment="CENTER" layoutX="103.0" layoutY="413.0" prefHeight="25.0" prefWidth="180.0" promptText="Artista/s Invitado/s" />
+                              <TextField fx:id="txtCodigoEvento" alignment="CENTER" layoutX="103.0" layoutY="487.0" prefHeight="25.0" prefWidth="180.0" promptText="Código Del Evento" />
+                              <Label layoutX="387.0" layoutY="315.0" prefHeight="24.0" prefWidth="168.0" text="Seleccione la Localidad" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="409.0" layoutY="391.0" prefHeight="24.0" prefWidth="126.0" text="Fecha del Evento:" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtCapacidadMaxEvento" alignment="CENTER" layoutX="432.0" layoutY="489.0" prefHeight="25.0" prefWidth="79.0" promptText="Cant Max" />
+                              <Label layoutX="419.0" layoutY="465.0" prefHeight="24.0" prefWidth="115.0" text="Capacidad Max." textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
                                     </children>
                                 </AnchorPane>
                         <AnchorPane fx:id="panelAperturaTaquilla" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
