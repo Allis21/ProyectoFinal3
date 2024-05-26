@@ -6,7 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import uniquindio.edu.co.proyectofinal3.HelloApplication;
 
+<<<<<<< HEAD:src/main/java/uniquindio/edu/co/proyectofinal3/Controllers/adminController.java
+=======
+import java.io.IOException;
+
+>>>>>>> 1043d9718abeab598e08dca4f20666daf9fff4b9:src/main/java/uniquindio/edu/co/proyectofinal3/Controllers/AdminController.java
 public class AdminController {
 
     @FXML
@@ -85,8 +91,10 @@ public class AdminController {
     private TableView<?> tablaFactura;
 
     @FXML
-    void cerrarSesion(ActionEvent event) {
+    void cerrarSesion(ActionEvent event) throws IOException {
 
+        HelloApplication.showInicioView();
+        ((btnCerrarSesion)).getScene().getWindow().hide();
     }
 
     @FXML

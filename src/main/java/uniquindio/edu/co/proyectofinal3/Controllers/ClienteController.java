@@ -2,10 +2,17 @@ package uniquindio.edu.co.proyectofinal3.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import uniquindio.edu.co.proyectofinal3.HelloApplication;
+
+import java.io.IOException;
 
 public class ClienteController {
 
@@ -64,9 +71,11 @@ public class ClienteController {
     private TableView<?> tablaFactura;
 
     @FXML
-    void cerrarSesion(ActionEvent event) {
+    void cerrarSesion(ActionEvent event) throws IOException {
+        HelloApplication.showInicioView();
+        ((btnCerrarSesion)).getScene().getWindow().hide();
     }
-
+    
     @FXML
     void cliclkedFinalizarCompra(ActionEvent event) {
     }

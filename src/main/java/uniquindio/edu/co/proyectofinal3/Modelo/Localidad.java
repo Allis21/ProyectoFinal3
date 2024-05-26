@@ -1,11 +1,13 @@
 package uniquindio.edu.co.proyectofinal3.Modelo;
 
-public class Localidades {
+public class Localidad {
     private String pais;
     private String ciudad;
     private String direccion;
 
-    public Localidades(String pais, String ciudad, String direccion) {
+    public Localidad(){ super(); }
+
+    public Localidad(String pais, String ciudad, String direccion) {
         this.pais = pais;
         this.ciudad = ciudad;
         this.direccion = direccion;
