@@ -45,7 +45,7 @@ public class HelloApplication extends Application {
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        stage.setTitle("ESTUDIANTE");
+        stage.setTitle("CLIENTE");
         stage.show();
         stage.setResizable(false);
     }
