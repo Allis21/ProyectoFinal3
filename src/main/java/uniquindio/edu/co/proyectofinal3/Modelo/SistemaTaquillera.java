@@ -331,4 +331,48 @@ public class SistemaTaquillera implements Serializable {
     }
 
 
+
+    public static ArrayList<Integer> distribuirBoletos(int aforoTotal) {
+
+        ArrayList<Integer> boletas= new ArrayList<>();
+        int boletosCobre = (int) (aforoTotal * 0.60);
+        int boletosPlata = (int) (aforoTotal * 0.30);
+        int boletosOro = (int) (aforoTotal * 0.10);
+
+
+        int totalBoletosDistribuidos = boletosCobre + boletosPlata + boletosOro;
+
+
+        int diferencia = aforoTotal - totalBoletosDistribuidos;
+
+
+        if (diferencia > 0) {
+
+            if (boletosOro <= boletosPlata && boletosOro <= boletosCobre) {
+                boletosOro += diferencia;
+            } else if (boletosPlata <= boletosCobre) {
+                boletosPlata += diferencia;
+            } else {
+                boletosCobre += diferencia;
+            }
+        } else if (diferencia < 0) {
+
+            diferencia = Math.abs(diferencia);
+            if (boletosCobre >= boletosPlata && boletosCobre >= boletosOro) {
+                boletosCobre -= diferencia;
+            } else if (boletosPlata >= boletosOro) {
+                boletosPlata -= diferencia;
+            } else {
+                boletosOro -= diferencia;
+            }
+        }
+        boletas.add(boletosCobre);
+        boletas.add(boletosPlata);
+        boletas.add(boletosOro);
+        return boletas;
+
+
+    }
+
+
 }
