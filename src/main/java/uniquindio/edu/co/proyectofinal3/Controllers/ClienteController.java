@@ -75,7 +75,7 @@ public class ClienteController {
         HelloApplication.showInicioView();
         ((btnCerrarSesion)).getScene().getWindow().hide();
     }
-    
+
     @FXML
     void cliclkedFinalizarCompra(ActionEvent event) {
     }
@@ -91,4 +91,6 @@ public class ClienteController {
         panelEventos.setVisible(false);
         panelFactura.setVisible(true);
     }
+
+
 }

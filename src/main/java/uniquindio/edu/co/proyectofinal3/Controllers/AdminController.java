@@ -15,8 +15,11 @@ import uniquindio.edu.co.proyectofinal3.Modelo.AppController;
 import uniquindio.edu.co.proyectofinal3.Modelo.Localidad;
 import uniquindio.edu.co.proyectofinal3.Modelo.SistemaTaquillera;
 
+<<<<<<< HEAD:src/main/java/uniquindio/edu/co/proyectofinal3/Controllers/adminController.java
+=======
 import java.io.IOException;
 
+>>>>>>> 1043d9718abeab598e08dca4f20666daf9fff4b9:src/main/java/uniquindio/edu/co/proyectofinal3/Controllers/AdminController.java
 public class AdminController {
 
     SistemaTaquillera sistemaTaquillera = AppController.INSTANCE.getSistemaTaquillera();
