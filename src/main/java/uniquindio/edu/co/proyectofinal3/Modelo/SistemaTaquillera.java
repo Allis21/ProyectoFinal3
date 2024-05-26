@@ -12,7 +12,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import java.util.UUID;
 
 public class SistemaTaquillera implements Serializable {
     private Administrador administrador;
@@ -21,12 +20,9 @@ public class SistemaTaquillera implements Serializable {
     private Semaphore semaforo = new Semaphore(3); //Solo 3 clientes pueden comprar boletos al mismo tiempo
     private ArrayList<Cliente> listaClientes = new ArrayList<>();
     private ArrayList<Evento>listaEventos = new ArrayList<>();
-    private ArrayList<Boleto> listaBoletos = new ArrayList<>();
     private ArrayList<Localidad>listaLocalidades= new ArrayList<>();
-
     public ArrayList<Cliente> getListaClientes(){return listaClientes;}
     public ArrayList<Evento> getListaEventos(){return listaEventos;}
-    public ArrayList<Boleto> getListaBoletos() {return listaBoletos;}
     public ArrayList<Localidad>getListaLocalidades(){return listaLocalidades;}
     public SistemaTaquillera() {
         this.administrador = new Administrador("777", "abc");
@@ -78,17 +74,6 @@ public class SistemaTaquillera implements Serializable {
                     Thread.sleep(4000);
                     evento.setBoletosDisponibles(evento.getBoletosDisponibles() - cantidadBoletos);
                     resultado.append("Compra exitosa de ").append(cantidadBoletos).append(" boletos para el evento ").append(evento.getNombreEvento()).append(" por parte del cliente ").append(cliente.getNombre());
-
-                    // Generar un código único para el boleto
-                    String codigoBoleto = UUID.randomUUID().toString();
-                    Boleto boleto = new Boleto(evento.getNombreEvento(), codigoBoleto, evento.getCodigoEvento(), evento.getTipoBoleto());
-                    listaBoletos.add(boleto);
-
-                    // Si no hay más boletos disponibles, cerrar la taquilla y notificar a las personas en la fila
-                    if (evento.getBoletosDisponibles() == 0) {
-                        taquillaAbierta = false;
-                        resultado.append("\nLa taquilla ha sido cerrada debido a que los boletos se han agotado.");
-                    }
                 } else {
                     resultado.append("No hay suficientes boletos disponibles para el evento ").append(evento.getNombreEvento());
                 }
@@ -98,14 +83,6 @@ public class SistemaTaquillera implements Serializable {
         }
         semaforo.release();
         return resultado.toString();
-    }
-    public boolean verificarBoleto(String codigoBoleto) {
-        for (Boleto boleto : listaBoletos) {
-            if (boleto.getCodigoBoleto().equals(codigoBoleto)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     // Apertura de la taquilla virtual a una hora específica
