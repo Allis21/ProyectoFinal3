@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import uniquindio.edu.co.proyectofinal3.Exepciones.EventoException;
+import uniquindio.edu.co.proyectofinal3.Exepciones.LocalidadException;
 import uniquindio.edu.co.proyectofinal3.HelloApplication;
 import uniquindio.edu.co.proyectofinal3.Modelo.AppController;
 import uniquindio.edu.co.proyectofinal3.Modelo.Localidad;
@@ -115,11 +117,61 @@ public class AdminController {
 
     @FXML
     void clickedActualizarLocalidad(ActionEvent event) {
-        
+        String pais = txtPaisLocalidad.getText();
+        String ciudad = txtCiudadLocalidad.getText();
+        String direccion = txtDireccionLocalidad.getText();
+
+        Localidad localidad = new Localidad(pais, ciudad, direccion);
+
+        try{
+            boolean updateLocalidad = sistemaTaquillera.actualizarLocalidad(localidad);
+
+            if (updateLocalidad){
+                for (int i = 0; i < listaLocalidades.size(); i++){
+                    Localidad l = listaLocalidades.get(i);
+                    if(l.getDireccion().equals(direccion)){
+                        //Actualiza los valores de la localidad en la lista observable
+                        l.setPais(pais);
+                        l.setCiudad(ciudad);
+                        l.setDireccion(direccion);
+                        //Notifica el cambio en la lista
+                        listaLocalidades.set(i, l);
+                        break;
+                    }
+                }
+            }
+        }catch (EventoException | LocalidadException e){
+            //Maneja excepciones mostradno un mensaje de error o logueandolas
+            System.err.println("Error al actuliazar la localidad: " + e.getMessage());
+        }
+        txtPaisLocalidad.clear();
+        txtCiudadLocalidad.clear();
+        txtDireccionLocalidad.clear();
     }
 
     @FXML
-    void clickedEliminarLocalidad(ActionEvent event) {
+    void clickedEliminarLocalidad(ActionEvent event) throws LocalidadException {
+        String direccion = txtDireccionLocalidad.getText();
+
+        boolean removedLocalidad = sistemaTaquillera.eliminarLocalidad(direccion);
+
+        if (removedLocalidad){
+            Localidad localidadRemove = null;
+            for (Localidad localidad : listaLocalidades){
+                if(localidad.getDireccion().equals(direccion)){
+                    localidadRemove = localidad;
+                    break;
+                }
+            }
+            if(localidadRemove != null){
+                listaLocalidades.remove(localidadRemove);
+            }
+        }
+
+        txtPaisLocalidad.clear();
+        txtCiudadLocalidad.clear();
+        txtDireccionLocalidad.clear();
+
     }
 
     @FXML
