@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -86,7 +87,7 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff4f95;" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="panelRegistroLocalizaciones" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
+                                <AnchorPane fx:id="panelRegistroLocalizaciones" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
                                     <children>
                                         <TableView fx:id="tablaEventos" layoutX="15.0" layoutY="49.0" prefHeight="247.0" prefWidth="850.0">
                                             <columns>
@@ -133,25 +134,26 @@
                                  </font></Button>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="panelRegistroEvento" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
+                                <AnchorPane fx:id="panelRegistroEvento" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
                                     <children>
-                                        <TableView fx:id="tablaFactura" layoutX="35.0" layoutY="68.0" prefHeight="240.0" prefWidth="810.0">
+                                        <TableView fx:id="tablaFactura" layoutX="16.0" layoutY="49.0" prefHeight="240.0" prefWidth="849.0">
                                             <columns>
                                                 <TableColumn fx:id="columnNombreEventoRegis" prefWidth="140.80002975463867" text="Nombre Del Evento" />
                                                 <TableColumn fx:id="columnCodigoEventoRegis" minWidth="0.0" prefWidth="128.80006408691406" text="Codigo Del Evento" />
-                                    <TableColumn fx:id="columnArtistaRegis" prefWidth="82.4000244140625" text="Artista" />
-                                    <TableColumn fx:id="columnUbicacionRegis" prefWidth="84.0" text="Ubicación" />
-                                    <TableColumn fx:id="columnFechaRegis" prefWidth="92.0" text="Fecha" />
-                                    <TableColumn fx:id="columnBoletaOroRegis" minWidth="9.60003662109375" prefWidth="93.5999755859375" text="Oro" />
-                                    <TableColumn fx:id="columnBoletaPlataRegis" minWidth="0.0" prefWidth="88.00006103515625" text="Plata" />
-                                    <TableColumn fx:id="columnBoletaBronceRegis" prefWidth="100.79996337890623" text="Bronce" />
+                                    <TableColumn fx:id="columnArtistaRegis" prefWidth="133.0" text="Artista" />
+                                    <TableColumn fx:id="columnUbicacionRegis" prefWidth="139.0" text="Ubicación" />
+                                    <TableColumn fx:id="columnFechaRegis" prefWidth="129.0" text="Fecha" />
+                                    <TableColumn fx:id="columnBoletaOroRegis" minWidth="9.60003662109375" prefWidth="60.0" text="Oro" />
+                                    <TableColumn fx:id="columnBoletaPlataRegis" minWidth="0.0" prefWidth="58.0" text="Plata" />
+                                    <TableColumn fx:id="columnBoletaBronceRegis" prefWidth="59.0" text="Bronce" />
                                             </columns>
                                         </TableView>
-                              <Label layoutX="29.0" layoutY="14.0" prefHeight="24.0" prefWidth="248.0" text="Registro de Eventos" textAlignment="CENTER">
+                              <Label layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="248.0" text="Registro de Eventos" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft YaHei UI Bold" size="18.0" />
                                  </font>
                               </Label>
+                              <ComboBox fx:id="comboBoxLocalidades" layoutX="322.0" layoutY="346.0" prefWidth="150.0" />
                                     </children>
                                 </AnchorPane>
                         <AnchorPane fx:id="panelAperturaTaquilla" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">

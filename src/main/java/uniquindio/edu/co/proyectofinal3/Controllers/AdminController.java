@@ -5,10 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import uniquindio.edu.co.proyectofinal3.HelloApplication;
 import uniquindio.edu.co.proyectofinal3.Modelo.AppController;
@@ -79,6 +76,9 @@ public class AdminController {
 
     @FXML
     private TableColumn<?, ?> columnUbicacionRegis;
+
+    @FXML
+    private ComboBox<Localidad> comboBoxLocalidades;
 
     @FXML
     private AnchorPane panelAperturaTaquilla;
@@ -162,6 +162,7 @@ public class AdminController {
     @FXML
     void initialize() {
         setearTablaLocalidades();
+        comboBoxLocalidades.setItems(listaLocalidades);
     }
 
     @FXML
