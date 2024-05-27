@@ -185,13 +185,14 @@ public class SistemaTaquillera implements Serializable {
             nuevoEvento.setNombreEvento(evento.getNombreEvento());
             nuevoEvento.setNombreArtista(evento.getNombreArtista());
             nuevoEvento.setCodigoEvento(evento.getCodigoEvento());
-            nuevoEvento.setUbiacionEvento(evento.getUbiacionEvento());
-            nuevoEvento.setFehcaEvento(evento.getFehcaEvento());
-            nuevoEvento.setTipoBoleto(evento.getTipoBoleto());
-
+            nuevoEvento.setLocalidad(evento.getLocalidad());
+            nuevoEvento.setFechaEvento(evento.getFechaEvento());
+            nuevoEvento.setValorOro(evento.getValorOro());
+            nuevoEvento.setValorPlata(evento.getValorPlata());
+            nuevoEvento.setValorBronce(evento.getValorBronce());
             getListaEventos().add(nuevoEvento);
 
-            LocalTime horaEvento = nuevoEvento.getFehcaEvento().atStartOfDay().plusHours(1).toLocalTime();
+            LocalTime horaEvento = nuevoEvento.getFechaEvento().atStartOfDay().plusHours(1).toLocalTime();
             cerrarTaquilla(horaEvento);
 
         }
@@ -221,7 +222,7 @@ public class SistemaTaquillera implements Serializable {
         return enventoEncontrado;
     }
 
-    public boolean actualizarEvento( Evento evento)throws EventoException{
+    public void actualizarEvento(Evento evento)throws EventoException{
         Evento eventoActual = obtenerEvento(evento.getCodigoEvento());
         if (eventoActual == null){
             throw  new EventoException("El evento a actualizar no existe.");
@@ -229,10 +230,11 @@ public class SistemaTaquillera implements Serializable {
             eventoActual.setCodigoEvento(evento.getCodigoEvento());
             eventoActual.setNombreEvento(evento.getNombreEvento());
             eventoActual.setNombreArtista(evento.getNombreArtista());
-            eventoActual.setUbiacionEvento(evento.getUbiacionEvento());
-            eventoActual.setFehcaEvento(evento.getFehcaEvento());
-            eventoActual.setTipoBoleto(evento.getTipoBoleto());
-            return true;
+            eventoActual.setLocalidad(evento.getLocalidad());
+            eventoActual.setFechaEvento(evento.getFechaEvento());
+            eventoActual.setValorOro(evento.getValorOro());
+            eventoActual.setValorPlata(evento.getValorPlata());
+            eventoActual.setValorBronce(evento.getValorBronce());
         }
     }
 
@@ -329,50 +331,4 @@ public class SistemaTaquillera implements Serializable {
         }
         return flagExiste;
     }
-
-
-
-    public static ArrayList<Integer> distribuirBoletos(int aforoTotal) {
-
-        ArrayList<Integer> boletas= new ArrayList<>();
-        int boletosCobre = (int) (aforoTotal * 0.60);
-        int boletosPlata = (int) (aforoTotal * 0.30);
-        int boletosOro = (int) (aforoTotal * 0.10);
-
-
-        int totalBoletosDistribuidos = boletosCobre + boletosPlata + boletosOro;
-
-
-        int diferencia = aforoTotal - totalBoletosDistribuidos;
-
-
-        if (diferencia > 0) {
-
-            if (boletosOro <= boletosPlata && boletosOro <= boletosCobre) {
-                boletosOro += diferencia;
-            } else if (boletosPlata <= boletosCobre) {
-                boletosPlata += diferencia;
-            } else {
-                boletosCobre += diferencia;
-            }
-        } else if (diferencia < 0) {
-
-            diferencia = Math.abs(diferencia);
-            if (boletosCobre >= boletosPlata && boletosCobre >= boletosOro) {
-                boletosCobre -= diferencia;
-            } else if (boletosPlata >= boletosOro) {
-                boletosPlata -= diferencia;
-            } else {
-                boletosOro -= diferencia;
-            }
-        }
-        boletas.add(boletosCobre);
-        boletas.add(boletosPlata);
-        boletas.add(boletosOro);
-        return boletas;
-
-
-    }
-
-
 }

@@ -88,7 +88,7 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff4f95;" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="panelRegistroLocalizaciones" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
+                                <AnchorPane fx:id="panelRegistroLocalizaciones" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
                                     <children>
                                         <TableView fx:id="tablaLocalidades" layoutX="15.0" layoutY="49.0" prefHeight="247.0" prefWidth="850.0">
                                             <columns>
@@ -135,7 +135,7 @@
                                  </font></Button>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="panelRegistroEvento" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
+                                <AnchorPane fx:id="panelRegistroEvento" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
                                     <children>
                                         <TableView fx:id="tablaRegistroEvento" layoutX="16.0" layoutY="49.0" prefHeight="240.0" prefWidth="849.0">
                                             <columns>
@@ -154,53 +154,71 @@
                                     <Font name="Microsoft YaHei UI Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="comboBoxLocalidades" layoutX="396.0" layoutY="339.0" prefWidth="150.0" />
-                              <DatePicker fx:id="seleccionarFechaEvento" layoutX="384.0" layoutY="415.0" promptText="Seleccione La Fecha" />
-                              <Label layoutX="159.0" layoutY="313.0" prefHeight="24.0" prefWidth="67.0" text="Nombre:" textAlignment="CENTER">
+                              <ComboBox fx:id="comboBoxLocalidades" layoutX="293.0" layoutY="333.0" prefWidth="150.0" />
+                              <DatePicker fx:id="seleccionarFechaEvento" layoutX="281.0" layoutY="409.0" promptText="Seleccione La Fecha" />
+                              <Label layoutX="91.0" layoutY="308.0" prefHeight="24.0" prefWidth="67.0" text="Nombre:" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft YaHei UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="btnRegistrarEvento" layoutX="656.0" layoutY="337.0" mnemonicParsing="false" onAction="#clickedRegistrarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #5ff24e;" text="Registrar" textFill="WHITE">
+                              <Button fx:id="btnRegistrarEvento" layoutX="727.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickedRegistrarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #5ff24e;" text="Registrar" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnActualizarEvento" layoutX="656.0" layoutY="394.0" mnemonicParsing="false" onAction="#clickedActualizarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #3988d7;" text="Actualizar" textFill="WHITE">
+                              <Button fx:id="btnActualizarEvento" layoutX="727.0" layoutY="397.0" mnemonicParsing="false" onAction="#clickedActualizarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #3988d7;" text="Actualizar" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnEliminarEvento" layoutX="656.0" layoutY="450.0" mnemonicParsing="false" onAction="#clickedEliminarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #f83434;" text="Eliminar" textFill="WHITE">
+                              <Button fx:id="btnEliminarEvento" layoutX="727.0" layoutY="453.0" mnemonicParsing="false" onAction="#clickedEliminarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #f83434;" text="Eliminar" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="txtNombreEvento" alignment="CENTER" layoutX="103.0" layoutY="337.0" prefHeight="25.0" prefWidth="180.0" promptText="Nombre Del Evento" />
-                              <Label layoutX="164.0" layoutY="463.0" prefHeight="24.0" prefWidth="57.0" text="Código:" textAlignment="CENTER">
+                              <TextField fx:id="txtNombreEvento" alignment="CENTER" layoutX="35.0" layoutY="332.0" prefHeight="25.0" prefWidth="180.0" promptText="Nombre Del Evento" />
+                              <Label layoutX="96.0" layoutY="458.0" prefHeight="24.0" prefWidth="57.0" text="Código:" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft YaHei UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="167.0" layoutY="389.0" prefHeight="24.0" prefWidth="51.0" text="Artista:" textAlignment="CENTER">
+                              <Label layoutX="99.0" layoutY="384.0" prefHeight="24.0" prefWidth="51.0" text="Artista:" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft YaHei UI" size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtArtistaEvento" alignment="CENTER" layoutX="103.0" layoutY="413.0" prefHeight="25.0" prefWidth="180.0" promptText="Artista/s Invitado/s" />
-                              <TextField fx:id="txtCodigoEvento" alignment="CENTER" layoutX="103.0" layoutY="487.0" prefHeight="25.0" prefWidth="180.0" promptText="Código Del Evento" />
-                              <Label layoutX="387.0" layoutY="315.0" prefHeight="24.0" prefWidth="168.0" text="Seleccione la Localidad" textAlignment="CENTER">
+                              <TextField fx:id="txtArtistaEvento" alignment="CENTER" layoutX="35.0" layoutY="408.0" prefHeight="25.0" prefWidth="180.0" promptText="Artista/s Invitado/s" />
+                              <TextField fx:id="txtCodigoEvento" alignment="CENTER" layoutX="35.0" layoutY="482.0" prefHeight="25.0" prefWidth="180.0" promptText="Código Del Evento" />
+                              <Label layoutX="284.0" layoutY="309.0" prefHeight="24.0" prefWidth="168.0" text="Seleccione la Localidad" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft YaHei UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="409.0" layoutY="391.0" prefHeight="24.0" prefWidth="126.0" text="Fecha del Evento:" textAlignment="CENTER">
+                              <Label layoutX="306.0" layoutY="385.0" prefHeight="24.0" prefWidth="126.0" text="Fecha del Evento:" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft YaHei UI" size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtCapacidadMaxEvento" alignment="CENTER" layoutX="432.0" layoutY="489.0" prefHeight="25.0" prefWidth="79.0" promptText="Cant Max" />
-                              <Label layoutX="419.0" layoutY="465.0" prefHeight="24.0" prefWidth="115.0" text="Capacidad Max." textAlignment="CENTER">
+                              <TextField fx:id="txtCapacidadMaxEvento" alignment="CENTER" layoutX="329.0" layoutY="483.0" prefHeight="25.0" prefWidth="79.0" promptText="Cant Max" />
+                              <Label layoutX="316.0" layoutY="459.0" prefHeight="24.0" prefWidth="115.0" text="Capacidad Max." textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="553.0" layoutY="309.0" prefHeight="24.0" prefWidth="76.0" text="Valor Oro:" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtValorOro" alignment="CENTER" layoutX="552.0" layoutY="333.0" prefHeight="25.0" prefWidth="79.0" promptText="\$" />
+                              <Label layoutX="551.0" layoutY="385.0" prefHeight="24.0" prefWidth="82.0" text="Valor Plata:" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtValorPlata" alignment="CENTER" layoutX="552.0" layoutY="409.0" prefHeight="25.0" prefWidth="79.0" promptText="\$" />
+                              <TextField fx:id="txtValorBronce" alignment="CENTER" layoutX="552.0" layoutY="483.0" prefHeight="25.0" prefWidth="79.0" promptText="\$" />
+                              <Label layoutX="544.0" layoutY="459.0" prefHeight="24.0" prefWidth="96.0" text="Valor Bronce:" textAlignment="CENTER">
                                  <font>
                                     <Font name="Microsoft YaHei UI" size="15.0" />
                                  </font>

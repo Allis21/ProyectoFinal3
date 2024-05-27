@@ -11,15 +11,18 @@ import uniquindio.edu.co.proyectofinal3.Exepciones.EventoException;
 import uniquindio.edu.co.proyectofinal3.Exepciones.LocalidadException;
 import uniquindio.edu.co.proyectofinal3.HelloApplication;
 import uniquindio.edu.co.proyectofinal3.Modelo.AppController;
+import uniquindio.edu.co.proyectofinal3.Modelo.Evento;
 import uniquindio.edu.co.proyectofinal3.Modelo.Localidad;
 import uniquindio.edu.co.proyectofinal3.Modelo.SistemaTaquillera;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AdminController {
 
     SistemaTaquillera sistemaTaquillera = AppController.INSTANCE.getSistemaTaquillera();
 
     private ObservableList<Localidad> listaLocalidades;
+    private ObservableList<Evento> listaEventos;
 
     @FXML
     private Button btnAbrirTaquilla;
@@ -141,6 +144,15 @@ public class AdminController {
     private TextField txtPaisLocalidad;
 
     @FXML
+    private TextField txtValorBronce;
+
+    @FXML
+    private TextField txtValorOro;
+
+    @FXML
+    private TextField txtValorPlata;
+
+    @FXML
     void cerrarSesion(ActionEvent event) throws IOException {
         HelloApplication.showInicioView();
         ((btnCerrarSesion)).getScene().getWindow().hide();
@@ -217,7 +229,37 @@ public class AdminController {
 
     @FXML
     void clickedRegistrarEvento(ActionEvent event) {
+        Evento newEvento = new Evento();
+        newEvento.setNombreEvento(txtNombreEvento.getText());
+        newEvento.setNombreArtista(txtArtistaEvento.getText());
+        newEvento.setCodigoEvento(txtCodigoEvento.getText());
+        newEvento.setLocalidad(comboBoxLocalidades.getValue());
+        newEvento.setFechaEvento(seleccionarFechaEvento.getValue());
+        newEvento.setCapacidadEvento(Integer.parseInt(txtCapacidadMaxEvento.getText()));
 
+        ArrayList<Integer> distribuirBoletos = newEvento.distribuirBoletos();
+        newEvento.setBoletosBronce(distribuirBoletos.get(0));
+        newEvento.setBoletosPlata(distribuirBoletos.get(1));
+        newEvento.setBoletosOro(distribuirBoletos.get(2));
+
+        newEvento.setValorOro(Integer.parseInt(txtValorOro.getText()));
+        newEvento.setValorPlata(Integer.parseInt(txtValorPlata.getText()));
+        newEvento.setValorBronce(Integer.parseInt(txtValorBronce.getText()));
+
+        try {
+            sistemaTaquillera.registarEvento(newEvento);
+        } catch (EventoException e) {
+            throw new RuntimeException(e);
+        }
+        txtNombreEvento.clear();
+        txtArtistaEvento.clear();
+        txtCodigoEvento.clear();
+        comboBoxLocalidades.setValue(null);
+        seleccionarFechaEvento.setValue(null);
+        txtCapacidadMaxEvento.clear();
+        txtValorOro.clear();
+        txtValorPlata.clear();
+        txtValorBronce.clear();
     }
 
     @FXML
@@ -228,7 +270,11 @@ public class AdminController {
 
         Localidad localidad = new Localidad(pais, ciudad, direccion);
 
-        sistemaTaquillera.agregarLocalidad(localidad);
+        try {
+            sistemaTaquillera.registrarLocalidad(localidad);
+        } catch (LocalidadException e) {
+            throw new RuntimeException(e);
+        }
         listaLocalidades.addAll(localidad);
 
         txtPaisLocalidad.clear();
