@@ -343,7 +343,7 @@ public class SistemaTaquillera implements Serializable {
 
             try (FileWriter fw = new FileWriter(new File("src/main/resources/Persistencia/localidades.txt"), true);
                  Formatter ft = new Formatter(fw)) {
-                ft.format( localidad.getPais(), localidad.getCiudad(), localidad.getDireccion()+"%n");
+                ft.format( localidad.getPais()+";"+ localidad.getCiudad()+";" +localidad.getDireccion()+"%n");
             } catch (IOException e) {
                 throw new LocalidadException("La locación No se pudo registrar");
             }
