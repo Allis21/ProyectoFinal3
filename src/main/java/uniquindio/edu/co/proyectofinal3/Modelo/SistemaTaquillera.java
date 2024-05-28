@@ -135,8 +135,8 @@ public class SistemaTaquillera implements Serializable {
             try {
                 FileWriter fw = new FileWriter(new File("src/main/resources/persistencia/registro.txt"), true);
                 Formatter ft = new Formatter(fw);
-                ft.format(cliente.getNombre() + ";" + cliente.getId()
-                        + ";" + cliente.getCorreo());
+                ft.format( cliente.getNombre() + ";" + cliente.getId()
+                        + ";" + cliente.getCorreo()+"%n");
                 ft.close();
             } catch (IOException e) {
 
@@ -241,9 +241,9 @@ public class SistemaTaquillera implements Serializable {
             try {
                 FileWriter fw= new FileWriter(new File("src/main/resources/Persistencia/eventos.txt"),true);
                 Formatter ft= new Formatter(fw);
-                ft.format(evento.getNombreEvento()+";"+evento.getNombreEvento()+";"+evento.getNombreArtista()
+                ft.format(evento.getNombreEvento()+";"+evento.getNombreArtista()
                         +";"+evento.getCodigoEvento()+";"+evento.getLocalidad()+";"+evento.getFechaEvento()
-                        +";"+evento.getBoletosOro()+";"+evento.getBoletosPlata()+";"+evento.getBoletosBronce());
+                        +";"+evento.getBoletosOro()+";"+evento.getBoletosPlata()+";"+evento.getBoletosBronce() +"%n" );
                 ft.close();
             }catch (IOException e){
                 throw new EventoException("El evento no se pudo guardar");
@@ -319,46 +319,40 @@ public class SistemaTaquillera implements Serializable {
     //--CRUD-Localidades----------------------------------------------------------------------------------------------
 
     public Localidad registrarLocalidad(Localidad localidad) throws LocalidadException {
-        Localidad nuevalocalidad= null;
+        Localidad nuevalocalidad = null;
         boolean localidadExistente = LocalidadExistente(localidad.getDireccion());
-        if(localidadExistente){
-            throw new LocalidadException("La locacion con la direccion "+localidad.getDireccion()+" ya existe");
-
-        }else {
-
-            if(localidad.getPais()==null || localidad.getPais().isBlank()){
+        if (localidadExistente) {
+            throw new LocalidadException("La locacion con la direccion " + localidad.getDireccion() + " ya existe");
+        } else {
+            if (localidad.getPais() == null || localidad.getPais().isBlank()) {
                 throw new LocalidadException("No se ingresó el país");
             }
-            if(localidad.getCiudad()== null || localidad.getCiudad().isBlank()){
+            if (localidad.getCiudad() == null || localidad.getCiudad().isBlank()) {
                 throw new LocalidadException("No se ingresó la ciudad");
             }
-            if(localidad.getDireccion()== null || localidad.getDireccion().isBlank()){
+            if (localidad.getDireccion() == null || localidad.getDireccion().isBlank()) {
                 throw new LocalidadException("No se ingresó dirección");
             }
 
             nuevalocalidad = new Localidad();
             nuevalocalidad.setPais(localidad.getPais());
-            nuevalocalidad.setPais(localidad.getPais());
+            nuevalocalidad.setCiudad(localidad.getCiudad());
             nuevalocalidad.setDireccion(localidad.getDireccion());
 
             getListaLocalidades().add(nuevalocalidad);
 
-            try {
-                FileWriter fw = new FileWriter(new File("src/main/resources/Persistencia/localidades.txt"), true);
-                Formatter ft = new Formatter(fw);
-                ft.format(localidad.getPais()
-                        +";"+localidad.getCiudad()+
-                        ";"+localidad.getDireccion());
-                ft.close();
-
-            }catch (IOException e){
-                throw  new LocalidadException("La locación No se pudo registrar ");
-
+            try (FileWriter fw = new FileWriter(new File("src/main/resources/Persistencia/localidades.txt"), true);
+                 Formatter ft = new Formatter(fw)) {
+                ft.format( localidad.getPais(), localidad.getCiudad(), localidad.getDireccion()+"%n");
+            } catch (IOException e) {
+                throw new LocalidadException("La locación No se pudo registrar");
             }
         }
         return nuevalocalidad;
-
     }
+
+
+
     public void agregarLocalidad(Localidad nuevaLocalidad){
         getListaLocalidades().add(nuevaLocalidad);
     }
