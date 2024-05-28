@@ -12,15 +12,16 @@ public class Cliente implements Serializable {
 
     private String nombre, id, correo, contrasenia;
 
+    private ArrayList<Factura> facturas;
 
     public Cliente(){ super(); }
 
-   public Cliente(String nombre, String id, String correo, String contrasenia) {
-     this.nombre = nombre;
-     this.id = id;
-     this.correo = correo;
-     this.contrasenia = contrasenia;
-   }
+    public Cliente(String nombre, String id, String correo, String contrasenia) {
+        this.nombre = nombre;
+        this.id = id;
+        this.correo = correo;
+        this.contrasenia = contrasenia;
+    }
 
     public String getNombre() { return nombre; }
 
@@ -37,6 +38,15 @@ public class Cliente implements Serializable {
     public String getContrasenia() { return contrasenia; }
 
     public void setContrasenia(String contrasenia) { this.contrasenia = contrasenia; }
+
+    public ArrayList<Factura> getFacturas() {
+        return facturas;
+    }
+
+    public void setFacturas(ArrayList<Factura> facturas) {
+        this.facturas = facturas;
+    }
+
     public void conectarConServidor() {
         try {
             Socket socket = new Socket("localhost", 8090);

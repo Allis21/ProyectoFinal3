@@ -82,14 +82,17 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff4f95;" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="panelEventos" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
+                                <AnchorPane fx:id="panelEventos" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
                                     <children>
-                                        <TableView fx:id="tablaEventos" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0">
+                                        <TableView fx:id="tablaEventosCompra" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0">
                                             <columns>
-                                                <TableColumn fx:id="columnNombreEvento" prefWidth="240.0" text="Nombre" />
-                                                <TableColumn fx:id="columnInvitadosEvento" minWidth="0.0" prefWidth="189.0" text="Invitado/s" />
-                                                <TableColumn fx:id="columnLugarEvento" minWidth="0.0" prefWidth="185.0" text="Lugar" />
-                                                <TableColumn fx:id="columnFechaEvento" minWidth="1.0" prefWidth="235.0" text="Fecha" />
+                                                <TableColumn fx:id="columnNombreEvento" prefWidth="166.0" text="Nombre" />
+                                                <TableColumn fx:id="columnInvitadosEvento" minWidth="0.0" prefWidth="129.0" text="Invitado/s" />
+                                                <TableColumn fx:id="columnLugarEvento" minWidth="0.0" prefWidth="123.0" text="Lugar" />
+                                                <TableColumn fx:id="columnFechaEvento" minWidth="1.0" prefWidth="211.0" text="Fecha" />
+                                    <TableColumn fx:id="columnValorOro" prefWidth="66.0" text="Valor Oro" />
+                                    <TableColumn fx:id="columnValorPlata" prefWidth="73.0" text="Valor Plata" />
+                                    <TableColumn fx:id="columnValorBronce" prefWidth="81.0" text="Valor Bronce" />
                                             </columns>
                                         </TableView>
                               <TextField fx:id="txtFieldCantBoletasOro" layoutX="453.0" layoutY="270.0" prefHeight="26.0" prefWidth="198.0" promptText="Cantidad de bolestas deseadas" />

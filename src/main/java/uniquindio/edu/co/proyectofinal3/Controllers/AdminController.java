@@ -178,7 +178,6 @@ public class AdminController {
 
     @FXML
     void clickedActualizarEvento(ActionEvent event) {
-
     }
 
     @FXML
@@ -324,6 +323,13 @@ public class AdminController {
     }
 
     @FXML
+    void initialize() {
+        setearTablaLocalidades();
+        setearTablaEventos();
+        comboBoxLocalidades.setItems(listaLocalidades);
+    }
+
+    @FXML
     void setearTablaEventos() {
         listaEventos = FXCollections.observableArrayList();
         listaEventos.addAll(sistemaTaquillera.getListaEventos());
@@ -341,14 +347,27 @@ public class AdminController {
         columnValorPlataRegis.setCellValueFactory(cellData -> new SimpleObjectProperty<Float>(cellData.getValue().getValorPlata()));
         columnValorOroRegis.setCellValueFactory(cellData -> new SimpleObjectProperty<Float>(cellData.getValue().getValorOro()));
 
+        tablaRegistroEvento.setOnMouseClicked(event -> mostrarEventoEnCampos());
         tablaRegistroEvento.setItems(listaEventos);
     }
 
     @FXML
-    void initialize() {
-        setearTablaLocalidades();
-        setearTablaEventos();
-        comboBoxLocalidades.setItems(listaLocalidades);
+    void mostrarEventoEnCampos(){
+        Evento eventoSeleccionado = tablaRegistroEvento.getSelectionModel().getSelectedItem();
+        if (eventoSeleccionado != null) {
+            txtNombreEvento.setText(eventoSeleccionado.getNombreEvento());
+            txtCodigoEvento.setText(eventoSeleccionado.getCodigoEvento());
+            txtArtistaEvento.setText(eventoSeleccionado.getNombreArtista());
+            comboBoxLocalidades.setValue(eventoSeleccionado.getLocalidad());
+            seleccionarFechaEvento.setValue(eventoSeleccionado.getFechaEvento());
+            txtCapacidadMaxEvento.setText(Integer.toString(eventoSeleccionado.getCapacidadEvento()));
+            txtValorBronce.setText(Integer.toString(eventoSeleccionado.getBoletosBronce()));
+            txtValorPlata.setText(Integer.toString(eventoSeleccionado.getBoletosPlata()));
+            txtValorOro.setText(Integer.toString(eventoSeleccionado.getBoletosOro()));
+            txtValorBronce.setText(Float.toString(eventoSeleccionado.getValorBronce()));
+            txtValorPlata.setText(Float.toString(eventoSeleccionado.getValorPlata()));
+            txtValorOro.setText(Float.toString(eventoSeleccionado.getValorOro()));
+        }
     }
 
     @FXML
@@ -360,6 +379,17 @@ public class AdminController {
         columnCiudad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCiudad()));
         columnDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDireccion()));
 
+        tablaLocalidades.setOnMouseClicked(event -> mostrarLocalidadEnCampos());
         tablaLocalidades.setItems(listaLocalidades);
+    }
+
+    @FXML
+    void mostrarLocalidadEnCampos(){
+        Localidad localidadSeleccionada = tablaLocalidades.getSelectionModel().getSelectedItem();
+        if (localidadSeleccionada != null) {
+            txtPaisLocalidad.setText(localidadSeleccionada.getPais());
+            txtCiudadLocalidad.setText(localidadSeleccionada.getCiudad());
+            txtDireccionLocalidad.setText(localidadSeleccionada.getDireccion());
+        }
     }
 }

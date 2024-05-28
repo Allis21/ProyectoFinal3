@@ -21,7 +21,7 @@ import java.io.IOException;
 public class InicioSesionController {
     SistemaTaquillera sistemaTaquillera = AppController.INSTANCE.getSistemaTaquillera();
 
-    private Propiedades propiedades = Propiedades.getInstance();
+    //private Propiedades propiedades = Propiedades.getInstance();
     @FXML
     private Button btnIniciarSesion;
 
@@ -66,7 +66,7 @@ public class InicioSesionController {
                 ((btnIniciarSesion)).getScene().getWindow().hide();
             }
         } else {
-            Adicional.sendAlerta("ERROR", "Usuario No Registrado", "Los datos ingresados no están resgitrados en la plaforma");
+            Adicional.sendError("ERROR", "Usuario No Registrado", "Los datos ingresados no están resgitrados en la plaforma");
         }
     }
 
@@ -80,9 +80,9 @@ public class InicioSesionController {
 
         Cliente cliente = new Cliente(nombre, id, correo, contrasenia);
         if (sistemaTaquillera.clienteExistente(id)) {
-            Adicional.sendAlerta("ERROR", "Datos Incorrectos", "Un Usuario ya está registrado con el ID " + id);
+            Adicional.sendError("ERROR", "Datos Incorrectos", "Un Usuario ya está registrado con el ID " + id);
         } else {
-            Adicional.sendAlerta("Registro Completado", null, "El usuario ha sido registrado correctamente");
+            Adicional.sendAviso("Registro Completado", null, "El usuario ha sido registrado correctamente");
         }
 
         sistemaTaquillera.registrarCliente(cliente);
@@ -93,11 +93,11 @@ public class InicioSesionController {
         txtFieldPWReg.clear();
     }
 
-    public void cambiarIdioma() {
+    /*public void cambiarIdioma() {
         if (propiedades.getIdioma().equals("es")) {
             propiedades.escribirIdioma("en");
         } else {
             propiedades.escribirIdioma("es");
         }
-    }
+    }*/
 }
