@@ -4,14 +4,19 @@ import uniquindio.edu.co.proyectofinal3.Exepciones.ClienteException;
 import uniquindio.edu.co.proyectofinal3.Exepciones.EventoException;
 import uniquindio.edu.co.proyectofinal3.Exepciones.LocalidadException;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+
 
 public class SistemaTaquillera implements Serializable {
     private Administrador administrador;
@@ -103,18 +108,40 @@ public class SistemaTaquillera implements Serializable {
     }
     
     //--CRUD-cliente------------------------------------------------------------------------------------------
-    public Cliente registrarCliente(Cliente cliente)throws ClienteException {
+    public Cliente registrarCliente(Cliente cliente) throws ClienteException {
         Cliente nuevoCliente = null;
         boolean clienteExiste = clienteExistente(cliente.getId());
         if(clienteExiste) {
             throw new ClienteException("El cliente con id "+cliente.getId()+" ya está registrado");
         }else{
+            if(cliente.getNombre()== null || cliente.getNombre().isBlank()){
+                throw new ClienteException("No ingreso la el nombre");
+            }
+            if (cliente.getId()== null || cliente.getId().isBlank()){
+                throw new ClienteException("No ingresó la cedula");
+            }
+            if(cliente.getCorreo()==null || cliente.getCorreo().isBlank()){
+                throw new ClienteException("No ingreso el correo");
+            }
+            if (cliente.getContrasenia()== null || cliente.getContrasenia().isBlank()){
+                throw new ClienteException("No ingreso la contraseña");
+            }
             nuevoCliente = new Cliente();
             nuevoCliente.setNombre(cliente.getNombre());
             nuevoCliente.setId(cliente.getId());
             nuevoCliente.setCorreo(cliente.getCorreo());
 
             getListaClientes().add(nuevoCliente);
+            try {
+                FileWriter fw = new FileWriter(new File("src/main/resources/persistencia/registro.txt"), true);
+                Formatter ft = new Formatter(fw);
+                ft.format( cliente.getNombre() + ";" + cliente.getId()
+                        + ";" + cliente.getCorreo()+"%n");
+                ft.close();
+            } catch (IOException e) {
+
+                throw new ClienteException("El cliente no se pudo guardar");
+            }
         }
         return nuevoCliente;
     }
@@ -181,6 +208,22 @@ public class SistemaTaquillera implements Serializable {
             throw new EventoException("El evento con código "+evento.getCodigoEvento()+" ya existe.");
 
         }else{
+
+            if(evento.getNombreEvento()== null || evento.getNombreEvento().isBlank()){
+                throw new EventoException("No ingreso la cedula");
+            }
+            if (evento.getCodigoEvento()== null || evento.getCodigoEvento().isBlank()){
+                throw new EventoException("No ingreso el codigo");
+            }
+            if(evento.getFechaEvento()== null ){
+                throw new EventoException("No ingreso la fecha");
+            }
+            if(evento.getNombreArtista()== null || evento.getNombreArtista().isBlank()){
+                throw  new EventoException("No ingreso el nombre del Artista");
+            }
+            if(evento.getLocalidad()== null ){
+                throw new EventoException("No ingreso localidad");
+            }
             nuevoEvento = new Evento();
             nuevoEvento.setNombreEvento(evento.getNombreEvento());
             nuevoEvento.setNombreArtista(evento.getNombreArtista());
@@ -194,6 +237,17 @@ public class SistemaTaquillera implements Serializable {
 
             LocalTime horaEvento = nuevoEvento.getFechaEvento().atStartOfDay().plusHours(1).toLocalTime();
             cerrarTaquilla(horaEvento);
+
+            try {
+                FileWriter fw= new FileWriter(new File("src/main/resources/Persistencia/eventos.txt"),true);
+                Formatter ft= new Formatter(fw);
+                ft.format(evento.getNombreEvento()+";"+evento.getNombreArtista()
+                        +";"+evento.getCodigoEvento()+";"+evento.getLocalidad()+";"+evento.getFechaEvento()
+                        +";"+evento.getBoletosOro()+";"+evento.getBoletosPlata()+";"+evento.getBoletosBronce() +"%n" );
+                ft.close();
+            }catch (IOException e){
+                throw new EventoException("El evento no se pudo guardar");
+            }
 
         }
         return nuevoEvento;
@@ -265,22 +319,40 @@ public class SistemaTaquillera implements Serializable {
     //--CRUD-Localidades----------------------------------------------------------------------------------------------
 
     public Localidad registrarLocalidad(Localidad localidad) throws LocalidadException {
-        Localidad nuevalocalidad= null;
+        Localidad nuevalocalidad = null;
         boolean localidadExistente = LocalidadExistente(localidad.getDireccion());
-        if(localidadExistente){
-            throw new LocalidadException("La locacion con la direccion "+localidad.getDireccion()+" ya existe");
+        if (localidadExistente) {
+            throw new LocalidadException("La locacion con la direccion " + localidad.getDireccion() + " ya existe");
+        } else {
+            if (localidad.getPais() == null || localidad.getPais().isBlank()) {
+                throw new LocalidadException("No se ingresó el país");
+            }
+            if (localidad.getCiudad() == null || localidad.getCiudad().isBlank()) {
+                throw new LocalidadException("No se ingresó la ciudad");
+            }
+            if (localidad.getDireccion() == null || localidad.getDireccion().isBlank()) {
+                throw new LocalidadException("No se ingresó dirección");
+            }
 
-        }else {
             nuevalocalidad = new Localidad();
             nuevalocalidad.setPais(localidad.getPais());
-            nuevalocalidad.setPais(localidad.getPais());
+            nuevalocalidad.setCiudad(localidad.getCiudad());
             nuevalocalidad.setDireccion(localidad.getDireccion());
 
             getListaLocalidades().add(nuevalocalidad);
+
+            try (FileWriter fw = new FileWriter(new File("src/main/resources/Persistencia/localidades.txt"), true);
+                 Formatter ft = new Formatter(fw)) {
+                ft.format( localidad.getPais()+";"+ localidad.getCiudad()+";" +localidad.getDireccion()+"%n");
+            } catch (IOException e) {
+                throw new LocalidadException("La locación No se pudo registrar");
+            }
         }
         return nuevalocalidad;
-
     }
+
+
+
     public void agregarLocalidad(Localidad nuevaLocalidad){
         getListaLocalidades().add(nuevaLocalidad);
     }
