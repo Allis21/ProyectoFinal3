@@ -34,16 +34,15 @@ public class SistemaTaquillera implements Serializable {
     public ArrayList<Evento> getListaEventos(){return listaEventos;}
     public ArrayList<Localidad>getListaLocalidades(){return listaLocalidades;}
 
-    //private static final Logger LOGGER = Logger.getLogger(SistemaTaquillera.class.getName());
 
 
 
-   // public SistemaTaquillera() {
+    public SistemaTaquillera() {
 
-      //  this.administrador = new Administrador("777", "abc", this);
-     //   Cliente cliente = new Cliente("Juanito Alimaña", "111", "PERROHPTA", "mera");
-       // getListaClientes().add(cliente);
-  //  }
+        this.administrador = new Administrador("777", "abc", this);
+        Cliente cliente = new Cliente("Juanito Alimaña", "111", "PERROHPTA", "mera");
+        getListaClientes().add(cliente);
+    }
 
 
     public Administrador getAdministrador() {
