@@ -1,5 +1,7 @@
 package uniquindio.edu.co.proyectofinal3.Controllers;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,10 +12,13 @@ import javafx.scene.layout.AnchorPane;
 import uniquindio.edu.co.proyectofinal3.Exepciones.EventoException;
 import uniquindio.edu.co.proyectofinal3.Exepciones.LocalidadException;
 import uniquindio.edu.co.proyectofinal3.HelloApplication;
-import uniquindio.edu.co.proyectofinal3.Modelo.*;
-
+import uniquindio.edu.co.proyectofinal3.Modelo.AppController;
+import uniquindio.edu.co.proyectofinal3.Modelo.Evento;
+import uniquindio.edu.co.proyectofinal3.Modelo.Localidad;
+import uniquindio.edu.co.proyectofinal3.Modelo.SistemaTaquillera;
 import java.io.IOException;
-import java.time.LocalTime;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class AdminController {
@@ -21,6 +26,7 @@ public class AdminController {
     SistemaTaquillera sistemaTaquillera = AppController.INSTANCE.getSistemaTaquillera();
 
     private ObservableList<Localidad> listaLocalidades;
+
     private ObservableList<Evento> listaEventos;
 
     @FXML
@@ -54,22 +60,19 @@ public class AdminController {
     private Button btnRegistrarLocalidad;
 
     @FXML
-    private TableColumn<?, ?> columnArtistaRegis;
+    private TableColumn<Evento, String> columnArtistaRegis;
 
     @FXML
-    private TableColumn<?, ?> columnBoletaBronceRegis;
+    private TableColumn<Evento, Integer> columnBronceRegis;
 
     @FXML
-    private TableColumn<?, ?> columnBoletaOroRegis;
-
-    @FXML
-    private TableColumn<?, ?> columnBoletaPlataRegis;
+    private TableColumn<Evento, Integer> columnCapacidadRegis;
 
     @FXML
     private TableColumn<Localidad, String> columnCiudad;
 
     @FXML
-    private TableColumn<?, ?> columnCodigoEventoRegis;
+    private TableColumn<Evento, String> columnCodigoEventoRegis;
 
     @FXML
     private TableColumn<Localidad, String> columnDireccion;
@@ -81,22 +84,37 @@ public class AdminController {
     private TableColumn<?, ?> columnFechaAper;
 
     @FXML
-    private TableColumn<?, ?> columnFechaRegis;
+    private TableColumn<Evento, LocalDate> columnFechaRegis;
 
     @FXML
     private TableColumn<?, ?> columnHoraAper;
 
     @FXML
-    private TableColumn<?, ?> columnLocalidadRegis;
+    private TableColumn<Evento, String> columnLocalidadRegis;
 
     @FXML
     private TableColumn<?, ?> columnNombreEventoApert;
 
     @FXML
-    private TableColumn<?, ?> columnNombreEventoRegis;
+    private TableColumn<Evento, String> columnNombreEventoRegis;
+
+    @FXML
+    private TableColumn<Evento, Integer> columnOroRegis;
 
     @FXML
     private TableColumn<Localidad, String> columnPais;
+
+    @FXML
+    private TableColumn<Evento, Integer> columnPlataRegis;
+
+    @FXML
+    private TableColumn<Evento, Float> columnValorCobreRegis;
+
+    @FXML
+    private TableColumn<Evento, Float> columnValorOroRegis;
+
+    @FXML
+    private TableColumn<Evento, Float> columnValorPlataRegis;
 
     @FXML
     private ComboBox<Localidad> comboBoxLocalidades;
@@ -112,14 +130,15 @@ public class AdminController {
 
     @FXML
     private DatePicker seleccionarFechaEvento;
-    @FXML
-    private TableView<Localidad> tablaLocalidades;
 
     @FXML
     private TableView<?> tablaEventos1;
 
     @FXML
-    private TableView<?> tablaRegistroEvento;
+    private TableView<Localidad> tablaLocalidades;
+
+    @FXML
+    private TableView<Evento> tablaRegistroEvento;
 
     @FXML
     private TextField txtArtistaEvento;
@@ -150,15 +169,6 @@ public class AdminController {
 
     @FXML
     private TextField txtValorPlata;
-
-//Para Joseph
-    @FXML
-    void clickedAbrirTaquilla(ActionEvent event) {
-        Administrador admin = new Administrador("777", "abc", sistemaTaquillera);
-
-        // Invocar el método abrirTaquilla
-        admin.abrirTaquilla(LocalTime.of(9, 0)); // Abre la taquilla a las 9:00
-    }
 
     @FXML
     void cerrarSesion(ActionEvent event) throws IOException {
@@ -259,6 +269,8 @@ public class AdminController {
         } catch (EventoException e) {
             throw new RuntimeException(e);
         }
+        listaEventos.addAll(newEvento);
+
         txtNombreEvento.clear();
         txtArtistaEvento.clear();
         txtCodigoEvento.clear();
@@ -312,8 +324,30 @@ public class AdminController {
     }
 
     @FXML
+    void setearTablaEventos() {
+        listaEventos = FXCollections.observableArrayList();
+        listaEventos.addAll(sistemaTaquillera.getListaEventos());
+
+        columnNombreEventoRegis.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombreEvento()));
+        columnCodigoEventoRegis.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCodigoEvento()));
+        columnArtistaRegis.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombreArtista()));
+        columnLocalidadRegis.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getLocalidad().toString()));
+        columnFechaRegis.setCellValueFactory(cellData -> new SimpleObjectProperty<LocalDate>(cellData.getValue().getFechaEvento()));
+        columnCapacidadRegis.setCellValueFactory(cellData -> new SimpleObjectProperty<Integer>(cellData.getValue().getCapacidadEvento()));
+        columnBronceRegis.setCellValueFactory(cellData -> new SimpleObjectProperty<Integer>(cellData.getValue().distribuirBoletos().get(0)));
+        columnPlataRegis.setCellValueFactory(cellData -> new SimpleObjectProperty<Integer>(cellData.getValue().distribuirBoletos().get(1)));
+        columnOroRegis.setCellValueFactory(cellData -> new SimpleObjectProperty<Integer>(cellData.getValue().distribuirBoletos().get(2)));
+        columnValorCobreRegis.setCellValueFactory(cellData -> new SimpleObjectProperty<Float>(cellData.getValue().getValorBronce()));
+        columnValorPlataRegis.setCellValueFactory(cellData -> new SimpleObjectProperty<Float>(cellData.getValue().getValorPlata()));
+        columnValorOroRegis.setCellValueFactory(cellData -> new SimpleObjectProperty<Float>(cellData.getValue().getValorOro()));
+
+        tablaRegistroEvento.setItems(listaEventos);
+    }
+
+    @FXML
     void initialize() {
         setearTablaLocalidades();
+        setearTablaEventos();
         comboBoxLocalidades.setItems(listaLocalidades);
     }
 

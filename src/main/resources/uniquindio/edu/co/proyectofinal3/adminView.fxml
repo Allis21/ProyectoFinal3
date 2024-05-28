@@ -58,30 +58,30 @@
                                 <Line endX="73.0" layoutX="113.0" layoutY="205.0" startX="-100.0" stroke="WHITE" />
                                 <Circle fill="#ff4f95" layoutX="169.0" layoutY="247.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
                                 <Circle fill="#ff4f95" layoutX="169.0" layoutY="317.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
-                        <ImageView fitHeight="206.0" fitWidth="201.0" layoutX="-1.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Media/Vector2.png" />
-                           </image>
-                        </ImageView>
-                        <Circle fill="#ff4f95" layoutX="169.0" layoutY="382.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
-                        <ImageView fitHeight="71.0" fitWidth="109.0" layoutX="50.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Media/Locación.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="72.0" fitWidth="100.0" layoutX="50.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Media/Evento.png" />
-                           </image>
-                        </ImageView>
-                        <Button fx:id="btnPanelLocaciones" layoutX="76.0" layoutY="222.0" mnemonicParsing="false" onAction="#clickedPanelLocaciones" opacity="0.0" prefHeight="53.0" prefWidth="49.0" />
-                        <Button fx:id="btnPanelEventos" layoutX="71.0" layoutY="292.0" mnemonicParsing="false" onAction="#clickedPanelEventos" opacity="0.0" prefHeight="51.0" prefWidth="58.0" />
-                        <ImageView fitHeight="74.0" fitWidth="105.0" layoutX="50.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Media/Apertura.png" />
-                           </image>
-                        </ImageView>
-                        <Button fx:id="btnAbrirTaquilla" layoutX="81.0" layoutY="359.0" mnemonicParsing="false" onAction="#clickedPanelAbrirTaquilla" opacity="0.0" prefHeight="55.0" prefWidth="43.0" />
+                                <ImageView fitHeight="206.0" fitWidth="201.0" layoutX="-1.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../Media/Vector2.png" />
+                                    </image>
+                                </ImageView>
+                                <Circle fill="#ff4f95" layoutX="169.0" layoutY="382.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
+                                <ImageView fitHeight="71.0" fitWidth="109.0" layoutX="50.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../Media/Locación.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="72.0" fitWidth="100.0" layoutX="50.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../Media/Evento.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="btnPanelLocaciones" layoutX="76.0" layoutY="222.0" mnemonicParsing="false" onAction="#clickedPanelLocaciones" opacity="0.0" prefHeight="53.0" prefWidth="49.0" />
+                                <Button fx:id="btnPanelEventos" layoutX="71.0" layoutY="292.0" mnemonicParsing="false" onAction="#clickedPanelEventos" opacity="0.0" prefHeight="51.0" prefWidth="58.0" />
+                                <ImageView fitHeight="74.0" fitWidth="105.0" layoutX="50.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../Media/Apertura.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="btnAbrirTaquilla" layoutX="81.0" layoutY="359.0" mnemonicParsing="false" onAction="#clickedPanelAbrirTaquilla" opacity="0.0" prefHeight="55.0" prefWidth="43.0" />
                             </children>
                         </AnchorPane>
                     </left>
@@ -97,151 +97,155 @@
                                                 <TableColumn fx:id="columnDireccion" minWidth="0.0" prefWidth="405.59991455078125" text="Dirección" />
                                             </columns>
                                         </TableView>
-                              <Label layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="248.0" text="Registro de Localizaciones" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI Bold" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="244.0" layoutY="321.0" prefHeight="24.0" prefWidth="37.0" text="País: " textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="txtPaisLocalidad" alignment="CENTER" layoutX="155.0" layoutY="345.0" prefHeight="25.0" prefWidth="215.0" promptText="Ingrese el País" />
-                              <Label layoutX="234.0" layoutY="385.0" prefHeight="24.0" prefWidth="57.0" text="Ciudad:" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="225.0" layoutY="449.0" prefHeight="24.0" prefWidth="76.0" text="Dirección:" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="txtCiudadLocalidad" alignment="CENTER" layoutX="155.0" layoutY="409.0" prefHeight="25.0" prefWidth="215.0" promptText="Ingrese la Ciudad" />
-                              <TextField fx:id="txtDireccionLocalidad" alignment="CENTER" layoutX="155.0" layoutY="473.0" prefHeight="25.0" prefWidth="215.0" promptText="Ingrese la Dirección" />
-                              <Line endX="-100.0" endY="199.0" layoutX="540.0" layoutY="324.0" startX="-100.0" startY="-11.0" />
-                              <Button fx:id="btnRegistrarLocalidad" layoutX="508.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickedRegistrarLocalidad" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #5ff24e;" text="Registrar" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></Button>
-                              <Button fx:id="btnActualizarLocalidad" layoutX="508.0" layoutY="400.0" mnemonicParsing="false" onAction="#clickedActualizarLocalidad" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #3988d7;" text="Actualizar" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></Button>
-                              <Button fx:id="btnEliminarLocalidad" layoutX="508.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickedEliminarLocalidad" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #f83434;" text="Eliminar" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></Button>
+                                        <Label layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="248.0" text="Registro de Localizaciones" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="244.0" layoutY="321.0" prefHeight="24.0" prefWidth="37.0" text="País: " textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtPaisLocalidad" alignment="CENTER" layoutX="155.0" layoutY="345.0" prefHeight="25.0" prefWidth="215.0" promptText="Ingrese el País" />
+                                        <Label layoutX="234.0" layoutY="385.0" prefHeight="24.0" prefWidth="57.0" text="Ciudad:" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="225.0" layoutY="449.0" prefHeight="24.0" prefWidth="76.0" text="Dirección:" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtCiudadLocalidad" alignment="CENTER" layoutX="155.0" layoutY="409.0" prefHeight="25.0" prefWidth="215.0" promptText="Ingrese la Ciudad" />
+                                        <TextField fx:id="txtDireccionLocalidad" alignment="CENTER" layoutX="155.0" layoutY="473.0" prefHeight="25.0" prefWidth="215.0" promptText="Ingrese la Dirección" />
+                                        <Line endX="-100.0" endY="199.0" layoutX="540.0" layoutY="324.0" startX="-100.0" startY="-11.0" />
+                                        <Button fx:id="btnRegistrarLocalidad" layoutX="508.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickedRegistrarLocalidad" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #5ff24e;" text="Registrar" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></Button>
+                                        <Button fx:id="btnActualizarLocalidad" layoutX="508.0" layoutY="400.0" mnemonicParsing="false" onAction="#clickedActualizarLocalidad" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #3988d7;" text="Actualizar" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></Button>
+                                        <Button fx:id="btnEliminarLocalidad" layoutX="508.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickedEliminarLocalidad" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #f83434;" text="Eliminar" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></Button>
                                     </children>
                                 </AnchorPane>
                                 <AnchorPane fx:id="panelRegistroEvento" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
                                     <children>
                                         <TableView fx:id="tablaRegistroEvento" layoutX="16.0" layoutY="49.0" prefHeight="240.0" prefWidth="849.0">
                                             <columns>
-                                                <TableColumn fx:id="columnNombreEventoRegis" prefWidth="140.80002975463867" text="Nombre Del Evento" />
-                                                <TableColumn fx:id="columnCodigoEventoRegis" minWidth="0.0" prefWidth="128.80006408691406" text="Codigo Del Evento" />
-                                    <TableColumn fx:id="columnArtistaRegis" prefWidth="133.0" text="Artista" />
-                                    <TableColumn fx:id="columnLocalidadRegis" prefWidth="139.0" text="Localidad" />
-                                    <TableColumn fx:id="columnFechaRegis" prefWidth="129.0" text="Fecha" />
-                                    <TableColumn fx:id="columnBoletaOroRegis" minWidth="9.60003662109375" prefWidth="60.0" text="Oro" />
-                                    <TableColumn fx:id="columnBoletaPlataRegis" minWidth="0.0" prefWidth="58.0" text="Plata" />
-                                    <TableColumn fx:id="columnBoletaBronceRegis" prefWidth="59.0" text="Bronce" />
+                                                <TableColumn fx:id="columnNombreEventoRegis" prefWidth="77.0" text="Nombre Del Evento" />
+                                                <TableColumn fx:id="columnCodigoEventoRegis" minWidth="0.0" prefWidth="81.0" text="Codigo Del Evento" />
+                                                <TableColumn fx:id="columnArtistaRegis" prefWidth="113.0" text="Artista" />
+                                                <TableColumn fx:id="columnLocalidadRegis" prefWidth="119.0" text="Localidad" />
+                                                <TableColumn fx:id="columnFechaRegis" prefWidth="88.0" text="Fecha" />
+                                                <TableColumn fx:id="columnCapacidadRegis" minWidth="9.60003662109375" prefWidth="63.0" text="Capacidad" />
+                                                <TableColumn fx:id="columnOroRegis" minWidth="0.0" prefWidth="41.0" text="Oro" />
+                                                <TableColumn fx:id="columnPlataRegis" prefWidth="46.0" text="Plata" />
+                                                <TableColumn fx:id="columnBronceRegis" prefWidth="50.0" text="Bronce" />
+                                                <TableColumn fx:id="columnValorOroRegis" prefWidth="54.0" text="Valor Oro" />
+                                                <TableColumn fx:id="columnValorPlataRegis" prefWidth="62.0" text="Valor Plata" />
+                                                <TableColumn fx:id="columnValorCobreRegis" prefWidth="54.0" text="Valor Bronce" />
                                             </columns>
                                         </TableView>
-                              <Label layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="248.0" text="Registro de Eventos" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI Bold" size="18.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="comboBoxLocalidades" layoutX="293.0" layoutY="333.0" prefWidth="150.0" />
-                              <DatePicker fx:id="seleccionarFechaEvento" layoutX="281.0" layoutY="409.0" promptText="Seleccione La Fecha" />
-                              <Label layoutX="91.0" layoutY="308.0" prefHeight="24.0" prefWidth="67.0" text="Nombre:" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="btnRegistrarEvento" layoutX="727.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickedRegistrarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #5ff24e;" text="Registrar" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnActualizarEvento" layoutX="727.0" layoutY="397.0" mnemonicParsing="false" onAction="#clickedActualizarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #3988d7;" text="Actualizar" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnEliminarEvento" layoutX="727.0" layoutY="453.0" mnemonicParsing="false" onAction="#clickedEliminarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #f83434;" text="Eliminar" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                              <TextField fx:id="txtNombreEvento" alignment="CENTER" layoutX="35.0" layoutY="332.0" prefHeight="25.0" prefWidth="180.0" promptText="Nombre Del Evento" />
-                              <Label layoutX="96.0" layoutY="458.0" prefHeight="24.0" prefWidth="57.0" text="Código:" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="99.0" layoutY="384.0" prefHeight="24.0" prefWidth="51.0" text="Artista:" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="txtArtistaEvento" alignment="CENTER" layoutX="35.0" layoutY="408.0" prefHeight="25.0" prefWidth="180.0" promptText="Artista/s Invitado/s" />
-                              <TextField fx:id="txtCodigoEvento" alignment="CENTER" layoutX="35.0" layoutY="482.0" prefHeight="25.0" prefWidth="180.0" promptText="Código Del Evento" />
-                              <Label layoutX="284.0" layoutY="309.0" prefHeight="24.0" prefWidth="168.0" text="Seleccione la Localidad" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="306.0" layoutY="385.0" prefHeight="24.0" prefWidth="126.0" text="Fecha del Evento:" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="txtCapacidadMaxEvento" alignment="CENTER" layoutX="329.0" layoutY="483.0" prefHeight="25.0" prefWidth="79.0" promptText="Cant Max" />
-                              <Label layoutX="316.0" layoutY="459.0" prefHeight="24.0" prefWidth="115.0" text="Capacidad Max." textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="553.0" layoutY="309.0" prefHeight="24.0" prefWidth="76.0" text="Valor Oro:" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="txtValorOro" alignment="CENTER" layoutX="552.0" layoutY="333.0" prefHeight="25.0" prefWidth="79.0" promptText="\$" />
-                              <Label layoutX="551.0" layoutY="385.0" prefHeight="24.0" prefWidth="82.0" text="Valor Plata:" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="txtValorPlata" alignment="CENTER" layoutX="552.0" layoutY="409.0" prefHeight="25.0" prefWidth="79.0" promptText="\$" />
-                              <TextField fx:id="txtValorBronce" alignment="CENTER" layoutX="552.0" layoutY="483.0" prefHeight="25.0" prefWidth="79.0" promptText="\$" />
-                              <Label layoutX="544.0" layoutY="459.0" prefHeight="24.0" prefWidth="96.0" text="Valor Bronce:" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI" size="15.0" />
-                                 </font>
-                              </Label>
+                                        <Label layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="248.0" text="Registro de Eventos" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <ComboBox fx:id="comboBoxLocalidades" layoutX="293.0" layoutY="333.0" prefWidth="150.0" />
+                                        <DatePicker fx:id="seleccionarFechaEvento" layoutX="281.0" layoutY="409.0" promptText="Seleccione La Fecha" />
+                                        <Label layoutX="91.0" layoutY="308.0" prefHeight="24.0" prefWidth="67.0" text="Nombre:" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="btnRegistrarEvento" layoutX="727.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickedRegistrarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #5ff24e;" text="Registrar" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btnActualizarEvento" layoutX="727.0" layoutY="397.0" mnemonicParsing="false" onAction="#clickedActualizarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #3988d7;" text="Actualizar" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btnEliminarEvento" layoutX="727.0" layoutY="453.0" mnemonicParsing="false" onAction="#clickedEliminarEvento" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #f83434;" text="Eliminar" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <TextField fx:id="txtNombreEvento" alignment="CENTER" layoutX="35.0" layoutY="332.0" prefHeight="25.0" prefWidth="180.0" promptText="Nombre Del Evento" />
+                                        <Label layoutX="96.0" layoutY="458.0" prefHeight="24.0" prefWidth="57.0" text="Código:" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="99.0" layoutY="384.0" prefHeight="24.0" prefWidth="51.0" text="Artista:" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtArtistaEvento" alignment="CENTER" layoutX="35.0" layoutY="408.0" prefHeight="25.0" prefWidth="180.0" promptText="Artista/s Invitado/s" />
+                                        <TextField fx:id="txtCodigoEvento" alignment="CENTER" layoutX="35.0" layoutY="482.0" prefHeight="25.0" prefWidth="180.0" promptText="Código Del Evento" />
+                                        <Label layoutX="284.0" layoutY="309.0" prefHeight="24.0" prefWidth="168.0" text="Seleccione la Localidad" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="306.0" layoutY="385.0" prefHeight="24.0" prefWidth="126.0" text="Fecha del Evento:" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtCapacidadMaxEvento" alignment="CENTER" layoutX="329.0" layoutY="483.0" prefHeight="25.0" prefWidth="79.0" promptText="Cant Max" />
+                                        <Label layoutX="316.0" layoutY="459.0" prefHeight="24.0" prefWidth="115.0" text="Capacidad Max." textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="553.0" layoutY="309.0" prefHeight="24.0" prefWidth="76.0" text="Valor Oro:" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtValorOro" alignment="CENTER" layoutX="552.0" layoutY="333.0" prefHeight="25.0" prefWidth="79.0" promptText="\$" />
+                                        <Label layoutX="551.0" layoutY="385.0" prefHeight="24.0" prefWidth="82.0" text="Valor Plata:" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtValorPlata" alignment="CENTER" layoutX="552.0" layoutY="409.0" prefHeight="25.0" prefWidth="79.0" promptText="\$" />
+                                        <TextField fx:id="txtValorBronce" alignment="CENTER" layoutX="552.0" layoutY="483.0" prefHeight="25.0" prefWidth="79.0" promptText="\$" />
+                                        <Label layoutX="544.0" layoutY="459.0" prefHeight="24.0" prefWidth="96.0" text="Valor Bronce:" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI" size="15.0" />
+                                            </font>
+                                        </Label>
                                     </children>
                                 </AnchorPane>
-                        <AnchorPane fx:id="panelAperturaTaquilla" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
-                           <children>
-                              <TableView fx:id="tablaEventos1" layoutX="16.0" layoutY="90.0" prefHeight="221.0" prefWidth="850.0">
-                                 <columns>
-                                    <TableColumn fx:id="columnNombreEventoApert" prefWidth="231.99999618530273" text="Nombre Del Evento" />
-                                    <TableColumn fx:id="columnFechaAper" minWidth="0.0" prefWidth="208.79995727539062" text="Fecha" />
-                                    <TableColumn fx:id="columnHoraAper" minWidth="0.0" prefWidth="200.80010986328125" text="Hora" />
-                                    <TableColumn fx:id="columnEstadoAper" prefWidth="207.19998779296873" text="Estado" />
-                                 </columns>
-                              </TableView>
-                              <Label layoutX="32.0" layoutY="25.0" prefHeight="24.0" prefWidth="248.0" text="Apertura de taquilla" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Microsoft YaHei UI Bold" size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
+                                <AnchorPane fx:id="panelAperturaTaquilla" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
+                                    <children>
+                                        <TableView fx:id="tablaEventos1" layoutX="16.0" layoutY="90.0" prefHeight="221.0" prefWidth="850.0">
+                                            <columns>
+                                                <TableColumn fx:id="columnNombreEventoApert" prefWidth="231.99999618530273" text="Nombre Del Evento" />
+                                                <TableColumn fx:id="columnFechaAper" minWidth="0.0" prefWidth="208.79995727539062" text="Fecha" />
+                                                <TableColumn fx:id="columnHoraAper" minWidth="0.0" prefWidth="200.80010986328125" text="Hora" />
+                                                <TableColumn fx:id="columnEstadoAper" prefWidth="207.19998779296873" text="Estado" />
+                                            </columns>
+                                        </TableView>
+                                        <Label layoutX="32.0" layoutY="25.0" prefHeight="24.0" prefWidth="248.0" text="Apertura de taquilla" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Microsoft YaHei UI Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
                             </children>
                         </AnchorPane>
                     </center>
