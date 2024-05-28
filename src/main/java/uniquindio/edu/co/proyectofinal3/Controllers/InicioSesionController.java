@@ -84,6 +84,7 @@ public class InicioSesionController {
         } else {
             Adicional.sendAlerta("Registro Completado", null, "El usuario ha sido registrado correctamente");
         }
+
         sistemaTaquillera.registrarCliente(cliente);
 
         txtFieldNombreReg.clear();
