@@ -326,12 +326,35 @@ public class SistemaTaquillera implements Serializable {
 
         }else {
 
+            if(localidad.getPais()==null || localidad.getPais().isBlank()){
+                throw new LocalidadException("No se ingresó el país");
+            }
+            if(localidad.getCiudad()== null || localidad.getCiudad().isBlank()){
+                throw new LocalidadException("No se ingresó la ciudad");
+            }
+            if(localidad.getDireccion()== null || localidad.getDireccion().isBlank()){
+                throw new LocalidadException("No se ingresó dirección");
+            }
+
             nuevalocalidad = new Localidad();
             nuevalocalidad.setPais(localidad.getPais());
             nuevalocalidad.setPais(localidad.getPais());
             nuevalocalidad.setDireccion(localidad.getDireccion());
 
             getListaLocalidades().add(nuevalocalidad);
+
+            try {
+                FileWriter fw = new FileWriter(new File("src/main/resources/Persistencia/localidades.txt"), true);
+                Formatter ft = new Formatter(fw);
+                ft.format(localidad.getPais()
+                        +";"+localidad.getCiudad()+
+                        ";"+localidad.getDireccion());
+                ft.close();
+
+            }catch (IOException e){
+                throw  new LocalidadException("La locación No se pudo registrar ");
+
+            }
         }
         return nuevalocalidad;
 
