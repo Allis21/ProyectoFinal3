@@ -38,12 +38,11 @@ public class SistemaTaquillera implements Serializable {
 
 
 
-   // public SistemaTaquillera() {
-
-      //  this.administrador = new Administrador("777", "abc", this);
-     //   Cliente cliente = new Cliente("Juanito Alimaña", "111", "PERROHPTA", "mera");
-       // getListaClientes().add(cliente);
-  //  }
+    public SistemaTaquillera() {
+        this.administrador = new Administrador("777", "abc", this);
+        Cliente cliente = new Cliente("Juanito Alimaña", "111", "juanito@gmail.com", "mera");
+        getListaClientes().add(cliente);
+   }
 
 
     public Administrador getAdministrador() {
