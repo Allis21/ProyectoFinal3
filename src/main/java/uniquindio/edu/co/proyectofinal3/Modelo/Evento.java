@@ -168,4 +168,8 @@ public class Evento implements Serializable {
         boletas.add(boletosOro);
         return boletas;
     }
+
+    public int getBoletosVendidos() {
+        return 0;
+    }
 }

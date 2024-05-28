@@ -30,7 +30,8 @@ public class SistemaTaquillera implements Serializable {
     public ArrayList<Evento> getListaEventos(){return listaEventos;}
     public ArrayList<Localidad>getListaLocalidades(){return listaLocalidades;}
     public SistemaTaquillera() {
-        this.administrador = new Administrador("777", "abc", sistemaTaquillera);
+
+        this.administrador = new Administrador("777", "abc", this);
         Cliente cliente = new Cliente("Juanito Alimaña", "111", "PERROHPTA", "mera");
         getListaClientes().add(cliente);
     }
@@ -59,6 +60,21 @@ public class SistemaTaquillera implements Serializable {
         this.taquillaAbierta = taquillaAbierta;
     }
 
+    // Método para actualizar la disponibilidad de boletas
+    public void actualizarDisponibilidadBoletas() {
+        for (Evento evento : listaEventos) {
+            int boletosDisponibles = evento.getCapacidadEvento() - evento.getBoletosVendidos();
+            evento.setBoletosDisponibles(boletosDisponibles);
+        }
+    }
+
+    // Método para iniciar el hilo de actualización
+    public void iniciarActualizacionDisponibilidadBoletas() {
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+        // Programa el hilo para que se ejecute cada minuto
+        scheduler.scheduleAtFixedRate(this::actualizarDisponibilidadBoletas, 0, 1, TimeUnit.MINUTES);
+    }
     //Visualización de disponibilidad de boletas para cada evento.
     public String mostrarDisponibilidadBoletos() {
         StringBuilder disponibilidad = new StringBuilder();
