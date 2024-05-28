@@ -16,6 +16,10 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 
 public class SistemaTaquillera implements Serializable {
@@ -29,12 +33,18 @@ public class SistemaTaquillera implements Serializable {
     public ArrayList<Cliente> getListaClientes(){return listaClientes;}
     public ArrayList<Evento> getListaEventos(){return listaEventos;}
     public ArrayList<Localidad>getListaLocalidades(){return listaLocalidades;}
-    public SistemaTaquillera() {
 
-        this.administrador = new Administrador("777", "abc", this);
-        Cliente cliente = new Cliente("Juanito Alimaña", "111", "PERROHPTA", "mera");
-        getListaClientes().add(cliente);
-    }
+    private static final Logger LOGGER = Logger.getLogger(SistemaTaquillera.class.getName());
+
+
+
+   // public SistemaTaquillera() {
+
+      //  this.administrador = new Administrador("777", "abc", this);
+     //   Cliente cliente = new Cliente("Juanito Alimaña", "111", "PERROHPTA", "mera");
+       // getListaClientes().add(cliente);
+  //  }
+
 
     public Administrador getAdministrador() {
         return administrador;
@@ -238,6 +248,7 @@ public class SistemaTaquillera implements Serializable {
         }else{
 
             if(evento.getNombreEvento()== null || evento.getNombreEvento().isBlank()){
+              //  LOGGER.log(level.SEVERE,"El nombre del evento es nulo" );
                 throw new EventoException("No ingreso la cedula");
             }
             if (evento.getCodigoEvento()== null || evento.getCodigoEvento().isBlank()){
