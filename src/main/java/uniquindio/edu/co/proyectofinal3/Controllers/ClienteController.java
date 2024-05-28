@@ -2,19 +2,18 @@ package uniquindio.edu.co.proyectofinal3.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import uniquindio.edu.co.proyectofinal3.HelloApplication;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 
 public class ClienteController {
+    private static final Logger logger = LogManager.getLogger(ClienteController.class);
+
 
     @FXML
     private Button btnCarrito;
@@ -78,6 +77,8 @@ public class ClienteController {
     
     @FXML
     void cliclkedFinalizarCompra(ActionEvent event) {
+
+        logger.info("Compra finalizada");
     }
 
     @FXML
