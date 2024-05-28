@@ -60,6 +60,18 @@ public class SistemaTaquillera implements Serializable {
         this.taquillaAbierta = taquillaAbierta;
     }
 
+    public String venderBoletos(Evento evento, int cantidadBoletos) {
+        int boletosDisponibles = evento.getBoletosDisponibles();
+        if (boletosDisponibles >= cantidadBoletos) {
+            int boletosVendidos = evento.getBoletosVendidos();
+            evento.setBoletosVendidos(boletosVendidos + cantidadBoletos);
+            evento.setBoletosDisponibles(boletosDisponibles - cantidadBoletos);
+            return "Venta de boletos exitosa.";
+        } else {
+            return "No hay suficientes boletos disponibles para vender.";
+        }
+    }
+
     // Método para actualizar la disponibilidad de boletas
     public void actualizarDisponibilidadBoletas() {
         for (Evento evento : listaEventos) {

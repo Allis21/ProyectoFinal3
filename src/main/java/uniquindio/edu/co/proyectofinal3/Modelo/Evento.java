@@ -15,6 +15,7 @@ public class Evento implements Serializable {
     private int boletosOro, boletosPlata, boletosBronce;
     private float valorOro, valorPlata, valorBronce;
     private int boletosDisponibles;
+    private int boletosVendidos;
 
     public Evento(){ super(); };
 
@@ -22,22 +23,28 @@ public class Evento implements Serializable {
         this.boletosDisponibles = boletosDisponibles;
     }
 
-    public Evento(String nombreEvento, String nombreArtista, String codigoEvento, Localidad localidad, LocalDate fechaEvento, int boletosOro, int boletosPlata, int boletosBronce, float valorOro, float valorPlata, float valorBronce, int capacidadEvento, int boletosDisponibles) {
+    public Evento(String nombreEvento, String nombreArtista, String codigoEvento, Localidad localidad, LocalDate fechaEvento, int capacidadEvento, int boletosOro, int boletosPlata, int boletosBronce, float valorOro, float valorPlata, float valorBronce, int boletosDisponibles, int boletosVendidos) {
         this.nombreEvento = nombreEvento;
         this.nombreArtista = nombreArtista;
         this.codigoEvento = codigoEvento;
         this.localidad = localidad;
         this.fechaEvento = fechaEvento;
+        this.capacidadEvento = capacidadEvento;
         this.boletosOro = boletosOro;
         this.boletosPlata = boletosPlata;
         this.boletosBronce = boletosBronce;
         this.valorOro = valorOro;
         this.valorPlata = valorPlata;
         this.valorBronce = valorBronce;
-        this.capacidadEvento = capacidadEvento;
         this.boletosDisponibles = boletosDisponibles;
+        this.boletosVendidos = boletosVendidos;
     }
-
+    public int getBoletosVendidos() {
+        return boletosVendidos;
+    }
+    public void setBoletosVendidos(int boletosVendidos) {
+        this.boletosVendidos = boletosVendidos;
+    }
     public String getNombreEvento() { return nombreEvento; }
     public void setNombreEvento(String nombreEvento) { this.nombreEvento = nombreEvento; }
 
@@ -169,7 +176,4 @@ public class Evento implements Serializable {
         return boletas;
     }
 
-    public int getBoletosVendidos() {
-        return 0;
-    }
 }
