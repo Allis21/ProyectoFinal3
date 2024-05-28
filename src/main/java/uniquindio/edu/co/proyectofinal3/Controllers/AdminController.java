@@ -10,11 +10,10 @@ import javafx.scene.layout.AnchorPane;
 import uniquindio.edu.co.proyectofinal3.Exepciones.EventoException;
 import uniquindio.edu.co.proyectofinal3.Exepciones.LocalidadException;
 import uniquindio.edu.co.proyectofinal3.HelloApplication;
-import uniquindio.edu.co.proyectofinal3.Modelo.AppController;
-import uniquindio.edu.co.proyectofinal3.Modelo.Evento;
-import uniquindio.edu.co.proyectofinal3.Modelo.Localidad;
-import uniquindio.edu.co.proyectofinal3.Modelo.SistemaTaquillera;
+import uniquindio.edu.co.proyectofinal3.Modelo.*;
+
 import java.io.IOException;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class AdminController {
@@ -151,6 +150,15 @@ public class AdminController {
 
     @FXML
     private TextField txtValorPlata;
+
+//Para Joseph
+    @FXML
+    void clickedAbrirTaquilla(ActionEvent event) {
+        Administrador admin = new Administrador("777", "abc", sistemaTaquillera);
+
+        // Invocar el método abrirTaquilla
+        admin.abrirTaquilla(LocalTime.of(9, 0)); // Abre la taquilla a las 9:00
+    }
 
     @FXML
     void cerrarSesion(ActionEvent event) throws IOException {

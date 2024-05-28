@@ -30,7 +30,7 @@ public class SistemaTaquillera implements Serializable {
     public ArrayList<Evento> getListaEventos(){return listaEventos;}
     public ArrayList<Localidad>getListaLocalidades(){return listaLocalidades;}
     public SistemaTaquillera() {
-        this.administrador = new Administrador("777", "abc");
+        this.administrador = new Administrador("777", "abc", sistemaTaquillera);
         Cliente cliente = new Cliente("Juanito Alimaña", "111", "PERROHPTA", "mera");
         getListaClientes().add(cliente);
     }
