@@ -86,10 +86,10 @@
                                     <children>
                                         <TableView fx:id="tablaEventos" layoutX="15.0" layoutY="14.0" prefHeight="221.0" prefWidth="850.0">
                                             <columns>
-                                                <TableColumn fx:id="columnNombreMateria" prefWidth="240.0" text="Nombre" />
-                                                <TableColumn fx:id="columnCodigoMateria" minWidth="0.0" prefWidth="189.0" text="Invitado/s" />
-                                                <TableColumn fx:id="columnCapacidadMateria" minWidth="0.0" prefWidth="185.0" text="Lugar" />
-                                                <TableColumn fx:id="columnEstadoMateria" minWidth="1.0" prefWidth="235.0" text="Fecha" />
+                                                <TableColumn fx:id="columnNombreEvento" prefWidth="240.0" text="Nombre" />
+                                                <TableColumn fx:id="columnInvitadosEvento" minWidth="0.0" prefWidth="189.0" text="Invitado/s" />
+                                                <TableColumn fx:id="columnLugarEvento" minWidth="0.0" prefWidth="185.0" text="Lugar" />
+                                                <TableColumn fx:id="columnFechaEvento" minWidth="1.0" prefWidth="235.0" text="Fecha" />
                                             </columns>
                                         </TableView>
                               <TextField fx:id="txtFieldCantBoletasOro" layoutX="453.0" layoutY="270.0" prefHeight="26.0" prefWidth="198.0" promptText="Cantidad de bolestas deseadas" />
@@ -104,7 +104,7 @@
                               <Circle fill="#80371e" layoutX="321.0" layoutY="426.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="panelFactura" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;">
+                                <AnchorPane fx:id="panelFactura" layoutX="10.0" layoutY="10.0" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: #ffffff;" visible="false">
                                     <children>
                                         <TableView fx:id="tablaFactura" layoutX="15.0" layoutY="45.0" prefHeight="423.0" prefWidth="850.0">
                                             <columns>

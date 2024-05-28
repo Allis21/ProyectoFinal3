@@ -9,7 +9,10 @@ import javafx.scene.layout.AnchorPane;
 import uniquindio.edu.co.proyectofinal3.HelloApplication;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import uniquindio.edu.co.proyectofinal3.Modelo.Evento;
+
 import java.io.IOException;
+import java.util.Date;
 
 public class ClienteController {
     private static final Logger logger = LogManager.getLogger(ClienteController.class);
@@ -28,34 +31,34 @@ public class ClienteController {
     private Button btnFinalizarCompra;
 
     @FXML
-    private TableColumn<?, ?> columnBoletasBronceFac;
+    private TableColumn<Evento, Float> columnBoletasBronceFac;
 
     @FXML
-    private TableColumn<?, ?> columnBoletasOroFac;
+    private TableColumn<Evento, Float> columnBoletasOroFac;
 
     @FXML
-    private TableColumn<?, ?> columnBoletasPlataFac;
+    private TableColumn<Evento, Float> columnBoletasPlataFac;
 
     @FXML
-    private TableColumn<?, ?> columnCapacidadMateria;
+    private TableColumn<Evento, Date> columnFechaEventoFac;
 
     @FXML
-    private TableColumn<?, ?> columnCodigoEventoFac;
+    private TableColumn<Evento, String> columnCodigoEventoFac;
 
     @FXML
-    private TableColumn<?, ?> columnCodigoMateria;
+    private TableColumn<Evento, String> columnInvitadosEvento;
 
     @FXML
-    private TableColumn<?, ?> columnEstadoMateria;
+    private TableColumn<Evento, String> columnLugarEvento;
 
     @FXML
-    private TableColumn<?, ?> columnNombreEventoFac;
+    private TableColumn<Evento, String> columnNombreEvento;
 
     @FXML
-    private TableColumn<?, ?> columnNombreMateria;
+    private TableColumn<Evento, String> columnNombreEventoFac;
 
     @FXML
-    private TableColumn<?, ?> columnValorFac;
+    private TableColumn<Evento, Float> columnValorFac;
 
     @FXML
     private AnchorPane panelEventos;
